@@ -13,6 +13,7 @@ import Home from "./components/Home";
 import ServiceSection from "./components/sectionArea/ServiceSection";
 import Informazioni from "./components/sectionArea/Informazioni";
 import Attività from "./components/sectionArea/Attività";
+import AsidePage from "./components/AsidePage";
 
 function App() {
   return (
@@ -32,7 +33,12 @@ function App() {
                     <Attività />
                   </Col>
                   <Col xs={12} md={6} lg={5} xl={4}>
-                    <Aside />
+                    <Aside title={"Altri profili per te"} button={"Segui"} />
+                    <Aside
+                      title={"Persone che potresti conoscere"}
+                      button={"Aggiungi"}
+                    />
+                    <AsidePage />
                   </Col>
                 </Row>
                 <Footer />
