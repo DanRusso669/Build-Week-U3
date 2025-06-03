@@ -1,8 +1,8 @@
-import { Col, Container, Row } from "react-bootstrap";
+import ButtonShowAll from "./ButtonShowAll";
 import OtherProfiles from "./OtherProfiles";
 import { useEffect, useState } from "react";
 
-const Aside = () => {
+const Aside = ({ title, button }) => {
   const [profiles, setProfiles] = useState([]);
 
   const URL = "https://striveschool-api.herokuapp.com/api/profile";
@@ -22,9 +22,9 @@ const Aside = () => {
         throw new Error("Errore nella fetch");
       }
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
       setProfiles(data);
-      console.log(profiles);
+      // console.log(profiles);
     } catch (error) {
       console.log(error);
     }
@@ -35,12 +35,22 @@ const Aside = () => {
   }, []);
   return (
     <>
-      <div className="bg-light rounded p-3 mt-4">
-        <h3 className="text-dark">Altri profili per te</h3>
-        {profiles.slice(0, 10).map((profile) => (
-          <OtherProfiles key={profile._id} profile={profile} />
+      <div className="bg-light rounded p-3 mt-4 rounded-bottom-0 border-bottom-0 border">
+        <h3 className="text-dark">{title}</h3>
+        {(title === "Persone che potresti conoscere" && (
+          <p> Dalla scuola o l'Università</p>
+        )) ||
+          (title === "Potrebbe interessarti" && <p>Pagine per te</p>)}
+        {profiles.slice(0, 5).map((profile) => (
+          <OtherProfiles
+            key={profile._id}
+            profile={profile}
+            button={button}
+            title={title}
+          />
         ))}
       </div>
+      <ButtonShowAll />
     </>
   );
 };

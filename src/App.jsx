@@ -4,13 +4,16 @@ import Rete from "./components/Rete";
 import Lavoro from "./components/Lavoro";
 import Messaggistica from "./components/Messaggistica";
 import Notifiche from "./components/Notifiche";
-import Profilo from "./components/Profilo";
 import "./App.css";
 import Footer from "./components/Footer";
-import FirstCard from "./components/FirstCard";
+import FirstCard from "./components/sectionArea/FirstCard";
 import Aside from "./components/Aside";
 import { Col, Container, Row } from "react-bootstrap";
 import Home from "./components/Home";
+import ServiceSection from "./components/sectionArea/ServiceSection";
+import Informazioni from "./components/sectionArea/Informazioni";
+import Attività from "./components/sectionArea/Attività";
+import AsidePage from "./components/AsidePage";
 
 function App() {
   return (
@@ -25,9 +28,17 @@ function App() {
                 <Row className="gx-5">
                   <Col xs={12} md={6} lg={7} xl={8}>
                     <FirstCard />
+                    <Informazioni />
+                    <ServiceSection />
+                    <Attività />
                   </Col>
                   <Col xs={12} md={6} lg={5} xl={4}>
-                    <Aside />
+                    <Aside title={"Altri profili per te"} button={"Segui"} />
+                    <Aside
+                      title={"Persone che potresti conoscere"}
+                      button={"Aggiungi"}
+                    />
+                    <AsidePage />
                   </Col>
                 </Row>
                 <Footer />
