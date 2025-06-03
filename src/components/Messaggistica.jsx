@@ -1,0 +1,1 @@
+import React from "react";const Messaggistica = () => {  return <h1>Messaggistica</h1>;};export default Messaggistica;
