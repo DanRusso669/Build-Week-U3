@@ -1,0 +1,36 @@
+/* FOOTER */
+
+#footer p {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+  color: gray;
+}
+
+#footer h5 {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  color: gray;
+  margin: 0;
+}
+
+#languageSelector option,
+#languageSelector,
+#labelLanguageSelector {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+  color: gray;
+}
+
+#credits {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+  color: gray;
+}
+
+.footerIcons {
+  color: rgba(0, 0, 0, 0.678);
+}
