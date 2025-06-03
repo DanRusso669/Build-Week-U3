@@ -12,7 +12,7 @@ const MyNavbar = () => {
 
   return (
     <>
-      <Navbar bg="light" expand="lg" className="justify-content-center">
+      <Navbar bg="light" expand="lg" className="justify-content-center position-sticky top-0">
         <Container className="text-center">
           <Navbar.Brand as={Link} to="/" className="mx-auto">
             <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn Logo" style={{ height: "30px" }} />
@@ -25,7 +25,7 @@ const MyNavbar = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav" className="justify-content-start">
             <Nav style={{ gap: "20px" }}>
-              <Nav.Link as={Link} to="/" className="text-center d-flex flex-column align-items-center">
+              <Nav.Link as={Link} to="/home" className="text-center d-flex flex-column align-items-center">
                 <FontAwesomeIcon icon={faHome} className="mb-1" />
                 <span>Home</span>
               </Nav.Link>
@@ -64,6 +64,9 @@ const MyNavbar = () => {
         </Modal.Header>
         <Modal.Body className="text-center">
           <p>Contenuto del profilo utente.</p>
+          <Link to="/" className="btn btn-outline-primary rounded-pill  w-100">
+            Visualizza Profilo
+          </Link>
         </Modal.Body>
         <Modal.Footer className="justify-content-center">
           <Button variant="secondary" onClick={handleClose}>

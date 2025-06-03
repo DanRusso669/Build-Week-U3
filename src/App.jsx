@@ -10,6 +10,7 @@ import Footer from "./components/Footer";
 import FirstCard from "./components/FirstCard";
 import Aside from "./components/Aside";
 import { Col, Container, Row } from "react-bootstrap";
+import Home from "./components/Home";
 
 function App() {
   return (
@@ -37,7 +38,7 @@ function App() {
           <Route path="/lavoro" element={<Lavoro />} />
           <Route path="/messaggistica" element={<Messaggistica />} />
           <Route path="/notifiche" element={<Notifiche />} />
-          <Route path="/tu" element={<Profilo />} />
+          <Route path="/home" element={<Home />} />
         </Routes>
         {/* <Container className="mainContainer">
           <Row className="gx-5">
