@@ -27,8 +27,8 @@ function App() {
                 <Row className="gx-5">
                   <Col xs={12} md={6} lg={7} xl={8}>
                     <FirstCard />
-                    <ServiceSection />
                     <Informazioni />
+                    <ServiceSection />
                     <Attività />
                   </Col>
                   <Col xs={12} md={6} lg={5} xl={4}>
