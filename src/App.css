@@ -2,6 +2,16 @@ body {
   background-color: #f4f2ee;
 }
 
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  margin: 0;
+}
+
 /* MAIN SECTION */
 
 /* ASIDE */
@@ -18,8 +28,13 @@ body {
   font-size: 16px;
 }
 
+.buttonShowMore {
+  background-color: white;
+}
+
 .buttonShowMore:hover {
   background-color: #f3f3f3;
+  /*Daniele Russo pipo piccolo impossibile fare un hover ad un bottone*/
 }
 .buttonShowMore:hover a {
   color: black;

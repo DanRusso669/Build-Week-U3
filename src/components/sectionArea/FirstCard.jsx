@@ -1,6 +1,6 @@
 import { Container, Card, Button, Row, Col } from "react-bootstrap";
 
-const ProfileCard = () => {
+const FirstCard = () => {
   const user = {
     name: "Mario",
     surname: "Rossi",
@@ -66,27 +66,16 @@ const ProfileCard = () => {
                 <Button variant="primary" size="sm" className="rounded-pill">
                   Collegati
                 </Button>
-                <Button
-                  variant="outline-primary"
-                  size="sm"
-                  className="rounded-pill"
-                >
+                <Button variant="outline-primary" size="sm" className="rounded-pill">
                   Messaggio
                 </Button>
-                <Button
-                  variant="outline-secondary"
-                  size="sm"
-                  className="rounded-pill"
-                >
+                <Button variant="outline-secondary" size="sm" className="rounded-pill">
                   Altro
                 </Button>
               </div>
             </Col>
 
-            <Col
-              md={4}
-              className="align-items-center d-block d-md-none d-lg-block"
-            >
+            <Col md={4} className="align-items-center d-block d-md-none d-lg-block">
               <Card className="mb-2">
                 <div className="d-flex">
                   <img
@@ -116,4 +105,4 @@ const ProfileCard = () => {
   );
 };
 
-export default ProfileCard;
+export default FirstCard;

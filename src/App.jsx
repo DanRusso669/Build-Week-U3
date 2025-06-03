@@ -7,10 +7,11 @@ import Notifiche from "./components/Notifiche";
 import Profilo from "./components/Profilo";
 import "./App.css";
 import Footer from "./components/Footer";
-import FirstCard from "./components/FirstCard";
+import FirstCard from "./components/sectionArea/FirstCard";
 import Aside from "./components/Aside";
 import { Col, Container, Row } from "react-bootstrap";
 import Home from "./components/Home";
+import ServiceSection from "./components/sectionArea/ServiceSection";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
                 <Row className="gx-5">
                   <Col xs={12} md={6} lg={7} xl={8}>
                     <FirstCard />
+                    <ServiceSection />
                   </Col>
                   <Col xs={12} md={6} lg={5} xl={4}>
                     <Aside />
