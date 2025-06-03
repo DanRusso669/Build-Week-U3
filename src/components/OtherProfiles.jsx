@@ -16,7 +16,7 @@ const OtherProfiles = ({ profile }) => {
           </Col>
           <Col xs={9}>
             <span>
-              <a className="text-dark text-decoration-none" href="#">
+              <a className="text-dark text-decoration-none fw-bold" href="#">
                 {profile.name}
                 {profile.surname}
               </a>
