@@ -35,7 +35,7 @@ const Aside = ({ title, button }) => {
   }, []);
   return (
     <>
-      <div className="bg-light rounded p-3 mt-4 rounded-bottom-0 border-bottom-0">
+      <div className="bg-light rounded p-3 mt-4 rounded-bottom-0 border-bottom-0 border">
         <h3 className="text-dark">{title}</h3>
         {(title === "Persone che potresti conoscere" && (
           <p> Dalla scuola o l'Università</p>

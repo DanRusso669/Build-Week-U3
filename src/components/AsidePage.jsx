@@ -7,7 +7,7 @@ const AsidePage = () => {
       <div className="bg-light rounded p-3 mt-4">
         <h3 className="text-dark">Potrebbe interessarti</h3>
         <p>Pagine per te</p>
-        <Container className="rounded-bottom-0 border-bottom-0">
+        <Container className="rounded-bottom-0 border-bottom-0 border">
           <Row className="d-flex justify-content-center mx-auto my-2">
             <Col xs={3}>
               <Image
