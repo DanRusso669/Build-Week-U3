@@ -7,12 +7,25 @@
   color: gray;
 }
 
+#footer p:hover,
+#footer h5:hover {
+  color: rgb(10, 102, 194);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 #footer h5 {
   font-size: 14px;
   line-height: 20px;
   font-weight: 600;
   color: gray;
   margin: 0;
+}
+
+#footer h5 + p:hover {
+  color: gray;
+  text-decoration: unset;
+  cursor: default;
 }
 
 #languageSelector option,

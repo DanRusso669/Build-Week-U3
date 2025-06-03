@@ -28,21 +28,21 @@ const Footer = () => {
           <Col>
             <div className="d-flex">
               <QuestionCircleFill className="me-2 fs-5 mt-1 footerIcons" />
-              <span>
+              <span className="notClickableP">
                 <h5>Domande?</h5>
                 <p className=" fw-normal">Visita il nostro Centro assistenza.</p>
               </span>
             </div>
             <div className="d-flex">
               <GearFill className="me-2 fs-5 mt-1 footerIcons" />
-              <span>
+              <span className="notClickableP">
                 <h5>Gestisci il tuo account e la tua privacy</h5>
                 <p className=" fw-normal">Vai alle impostazioni</p>
               </span>
             </div>
             <div className="d-flex">
               <ShieldShaded className="me-2 fs-5 mt-1 footerIcons" />
-              <span>
+              <span className="notClickableP">
                 <h5>Trasparenza sui contenuti consigliati</h5>
                 <p className="fw-normal">Scopri di più sui contenuti consigliati.</p>
               </span>
