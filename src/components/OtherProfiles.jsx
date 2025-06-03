@@ -1,6 +1,7 @@
 import { Button, Col, Container, Image, Row } from "react-bootstrap";
+import ButtonShowAll from "./ButtonShowAll";
 
-const OtherProfiles = ({ profile }) => {
+const OtherProfiles = ({ profile, button, title }) => {
   return (
     <>
       <Container>
@@ -20,13 +21,14 @@ const OtherProfiles = ({ profile }) => {
                 {profile.surname}
               </a>
             </span>
+            {title === "Altri profili per te" && <span> • 3°+</span>}
             <p className="text-truncate">
               {profile.title}
               {profile.bio}
             </p>
             <Button variant="outline-secondary rounded-pill">
               <h5 className="d-inline"> + </h5>
-              Segui
+              {button}
             </Button>
             <hr></hr>
           </Col>
