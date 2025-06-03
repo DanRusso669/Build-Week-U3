@@ -1,28 +1,29 @@
 import { Button, Col, Container, Image, Row } from "react-bootstrap";
 
-const OtherProfiles = () => {
+const OtherProfiles = ({ profile }) => {
   return (
     <>
-      <Container xs={3}>
+      <Container xs={4}>
         <Row className="d-flex justify-content-center mx-auto my-2">
-          <Col xs={2}>
+          <Col xs={3}>
             <Image
-              src="src\assets\download.png"
-              alt="img profile"
+              src={profile.image}
+              alt="Profile"
               width={50}
               height={50}
               roundedCircle
             />
           </Col>
-          <Col xs={10}>
+          <Col xs={9}>
             <span>
               <a className="text-dark text-decoration-none" href="#">
-                Nome e Cognome
+                {profile.name}
+                {profile.surname}
               </a>
             </span>
             <p className="text-truncate">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim
-              tenetur aut natus eius et optio perspic
+              {profile.title}
+              {profile.bio}
             </p>
             <Button variant="outline-secondary rounded-pill">
               <h5 className="d-inline"> + </h5>
