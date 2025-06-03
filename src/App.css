@@ -2,7 +2,22 @@ body {
   background-color: #f4f2ee;
 }
 
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  margin: 0;
+}
+
 /* MAIN SECTION */
+
+#informazioniArea p,
+#activityArea p {
+  font-size: 0.875rem;
+}
 
 /* ASIDE */
 .imgProfiles {
@@ -16,6 +31,10 @@ body {
   color: rgba(0, 0, 0, 0.61);
   font-weight: 600;
   font-size: 16px;
+}
+
+.buttonShowMore {
+  background-color: white;
 }
 
 .buttonShowMore:hover {
