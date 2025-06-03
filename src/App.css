@@ -1,3 +1,23 @@
+/* BUTTON SHOW MORE */
+
+.buttonShowMore a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.61);
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.buttonShowMore:hover {
+  background-color: #f3f3f3;
+}
+.buttonShowMore:hover a {
+  color: black;
+}
+
+.iconaButton {
+  font-size: 25px;
+}
+
 /* FOOTER */
 
 #footer p {
