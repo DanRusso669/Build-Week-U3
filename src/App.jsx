@@ -13,6 +13,7 @@ import Home from "./components/Home";
 import ServiceSection from "./components/sectionArea/ServiceSection";
 import Informazioni from "./components/sectionArea/Informazioni";
 import Attività from "./components/sectionArea/Attività";
+import Esperienza from "./components/sectionArea/Esperienza";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
                     <Informazioni />
                     <ServiceSection />
                     <Attività />
+                    <Esperienza />
                   </Col>
                   <Col xs={12} md={6} lg={5} xl={4}>
                     <Aside />
