@@ -14,6 +14,11 @@ p {
 
 /* MAIN SECTION */
 
+#informazioniArea p,
+#activityArea p {
+  font-size: 0.875rem;
+}
+
 /* ASIDE */
 .imgProfiles {
   max-width: 50px;
