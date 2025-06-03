@@ -14,6 +14,7 @@ import ServiceSection from "./components/sectionArea/ServiceSection";
 import Informazioni from "./components/sectionArea/Informazioni";
 import Attività from "./components/sectionArea/Attività";
 import AsidePage from "./components/AsidePage";
+import Projects from "./components/sectionArea/Projects";
 
 function App() {
   return (
@@ -31,13 +32,11 @@ function App() {
                     <Informazioni />
                     <ServiceSection />
                     <Attività />
+                    <Projects />
                   </Col>
                   <Col xs={12} md={6} lg={5} xl={4}>
                     <Aside title={"Altri profili per te"} button={"Segui"} />
-                    <Aside
-                      title={"Persone che potresti conoscere"}
-                      button={"Aggiungi"}
-                    />
+                    <Aside title={"Persone che potresti conoscere"} button={"Aggiungi"} />
                     <AsidePage />
                   </Col>
                 </Row>
