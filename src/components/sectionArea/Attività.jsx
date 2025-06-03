@@ -1,4 +1,4 @@
-import ButtonShowAll from "./ButtonShowAll";
+import ButtonShowAll from "../ButtonShowAll";
 
 const Attività = () => {
   return (
