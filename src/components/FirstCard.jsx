@@ -13,8 +13,8 @@ const ProfileCard = () => {
   };
 
   return (
-    <Container className="p-0 d-flex justify-content-center mt-4">
-      <Card className="border rounded-3 " style={{ width: "50%" }}>
+    <Container className="p-0 mt-4">
+      <Card className="border rounded-3">
         <div style={{ position: "relative" }}>
           <Card.Img
             src="https://i.imgur.com/bLQ1iTC.png"
@@ -66,16 +66,27 @@ const ProfileCard = () => {
                 <Button variant="primary" size="sm" className="rounded-pill">
                   Collegati
                 </Button>
-                <Button variant="outline-primary" size="sm" className="rounded-pill">
+                <Button
+                  variant="outline-primary"
+                  size="sm"
+                  className="rounded-pill"
+                >
                   Messaggio
                 </Button>
-                <Button variant="outline-secondary" size="sm" className="rounded-pill">
+                <Button
+                  variant="outline-secondary"
+                  size="sm"
+                  className="rounded-pill"
+                >
                   Altro
                 </Button>
               </div>
             </Col>
 
-            <Col md={4} className="align-items-center">
+            <Col
+              md={4}
+              className="align-items-center d-block d-md-none d-lg-block"
+            >
               <Card className="mb-2">
                 <div className="d-flex">
                   <img

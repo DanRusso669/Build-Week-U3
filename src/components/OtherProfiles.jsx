@@ -3,14 +3,13 @@ import { Button, Col, Container, Image, Row } from "react-bootstrap";
 const OtherProfiles = ({ profile }) => {
   return (
     <>
-      <Container xs={4}>
+      <Container>
         <Row className="d-flex justify-content-center mx-auto my-2">
           <Col xs={3}>
             <Image
               src={profile.image}
               alt="Profile"
-              width={50}
-              height={50}
+              className="imgProfiles"
               roundedCircle
             />
           </Col>

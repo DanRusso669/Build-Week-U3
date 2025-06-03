@@ -1,3 +1,17 @@
+body {
+  background-color: #f4f2ee;
+}
+
+/* MAIN SECTION */
+.mainContainer {
+  margin-inline: 6.5rem;
+}
+
+/* ASIDE */
+.imgProfiles {
+  max-width: 50px;
+}
+
 /* BUTTON SHOW MORE */
 
 .buttonShowMore a {

@@ -35,17 +35,12 @@ const Aside = () => {
   }, []);
   return (
     <>
-      <Container>
-        <Row className="justify-content-center">
-          <Col className="col-8">Prova</Col>
-          <Col className="col-4">
-            <h3 className="text-dark">Altri profili per te</h3>
-            {profiles.slice(0, 10).map((profile) => (
-              <OtherProfiles key={profile._id} profile={profile} />
-            ))}
-          </Col>
-        </Row>
-      </Container>
+      <div className="bg-light rounded p-3 mt-4">
+        <h3 className="text-dark">Altri profili per te</h3>
+        {profiles.slice(0, 10).map((profile) => (
+          <OtherProfiles key={profile._id} profile={profile} />
+        ))}
+      </div>
     </>
   );
 };
