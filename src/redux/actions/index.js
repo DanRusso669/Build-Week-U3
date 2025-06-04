@@ -17,8 +17,53 @@ export const fetchExperiences = () => {
 
       if (resp.ok) {
         let arrExp = await resp.json();
-        console.log(arrExp);
+
         dispatch(getExpersAction(arrExp));
+      } else {
+        throw new Error();
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const postExperiences = (method, newExp) => {
+  return async dispatch => {
+    try {
+      const resp = await fetch(`https://striveschool-api.herokuapp.com/api/profile/${id}/experiences`, {
+        method: method,
+        body: JSON.stringify(newExp),
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + key,
+        },
+      });
+
+      if (resp.ok) {
+        dispatch(fetchExperiences());
+      } else {
+        throw new Error();
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const deleteExperiences = expId => {
+  return async dispatch => {
+    try {
+      const resp = await fetch(`https://striveschool-api.herokuapp.com/api/profile/${id}/experiences/${expId}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + key,
+        },
+      });
+
+      if (resp.ok) {
+        dispatch(fetchExperiences());
       } else {
         throw new Error();
       }
