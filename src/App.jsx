@@ -16,6 +16,13 @@ import Attività from "./components/sectionArea/Attività";
 import AsidePage from "./components/AsidePage";
 import Projects from "./components/sectionArea/Projects";
 import Esperienza from "./components/sectionArea/Esperienza";
+import Competenze from "./components/sectionArea/Competenze";
+import References from "./components/sectionArea/References";
+import Courses from "./components/sectionArea/Courses";
+import Prizes from "./components/sectionArea/Prizes";
+import Languages from "./components/sectionArea/Languages";
+import Causes from "./components/sectionArea/Causes";
+import Interests from "./components/sectionArea/Interests";
 
 function App() {
   return (
@@ -35,6 +42,13 @@ function App() {
                     <Attività />
                     <Projects />
                     <Esperienza />
+                    <Competenze />
+                    <References />
+                    <Courses />
+                    <Prizes />
+                    <Languages />
+                    <Interests />
+                    <Causes />
                   </Col>
                   <Col xs={12} md={6} lg={5} xl={4}>
                     <Aside title={"Altri profili per te"} button={"Segui"} />

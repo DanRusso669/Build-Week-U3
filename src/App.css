@@ -52,6 +52,35 @@ p {
 .iconaButton {
   font-size: 25px;
 }
+/*REFERENCES*/
+.custom-tabs .nav-link.active {
+  color: #007e00;
+  border-bottom: 3px solid #007e00;
+  background-color: transparent;
+  font-weight: bold;
+}
+
+.custom-tabs .nav-link {
+  color: #000;
+  border: none;
+  background-color: transparent;
+}
+
+.custom-tabs .nav-link:hover {
+  color: #007e00;
+}
+/*INTERESTS*/
+@media (min-width: 1001px) {
+  .responsive-hr {
+    display: none;
+  }
+}
+
+@media (max-width: 1000px) {
+  .responsive-hr {
+    display: block;
+  }
+}
 
 /* FOOTER */
 
