@@ -15,6 +15,7 @@ import Informazioni from "./components/sectionArea/Informazioni";
 import Attività from "./components/sectionArea/Attività";
 import AsidePage from "./components/AsidePage";
 import Projects from "./components/sectionArea/Projects";
+import Esperienza from "./components/sectionArea/Esperienza";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
                     <ServiceSection />
                     <Attività />
                     <Projects />
+                    <Esperienza />
                   </Col>
                   <Col xs={12} md={6} lg={5} xl={4}>
                     <Aside title={"Altri profili per te"} button={"Segui"} />

@@ -1,0 +1,30 @@
+export const GET_EXPERS = "GET_EXPERS";
+
+export const getExpersAction = data => ({ type: GET_EXPERS, payload: data });
+
+const key =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODNlZmY5M2IxMGJmMDAwMTVjZjIyYmEiLCJpYXQiOjE3NDkwMjA3ODksImV4cCI6MTc1MDIzMDM4OX0.e6YtXrzZbqS3FiunbFVMoILNDdddgoEDMO06sAz2uNg";
+const id = "683eff93b10bf00015cf22ba";
+
+export const fetchExperiences = () => {
+  return async dispatch => {
+    try {
+      const resp = await fetch(`https://striveschool-api.herokuapp.com/api/profile/${id}/experiences`, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + key,
+        },
+      });
+
+      if (resp.ok) {
+        let arrExp = await resp.json();
+        console.log(arrExp);
+        dispatch(getExpersAction(arrExp));
+      } else {
+        throw new Error();
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
