@@ -24,6 +24,7 @@ const Esperienza = () => {
 
   const [show, setShow] = useState(false);
   const [showMod, setShowMod] = useState(false);
+  const [selectedExper, setSelectedExper] = useState(null);
 
   const handleClose = type => {
     if (type === "add") {
@@ -59,8 +60,7 @@ const Esperienza = () => {
     e.preventDefault();
 
     dispatch(postExperiences("POST", newExp));
-
-    handleClose();
+    handleClose("add");
   };
 
   const handleChange = (propName, propValue) => {
@@ -100,7 +100,14 @@ const Esperienza = () => {
               {hover.selectedRow === exp._id && (
                 <div className="d-flex justify-content-end align-items-center">
                   <TrashFill className="trashBin" onClick={() => handleClick(exp._id)} />
-                  <Pencil className="ms-3 modifyIcon" />
+                  <Pencil
+                    className="ms-3 modifyIcon"
+                    onClick={() => {
+                      setSelectedExper(exp);
+                      setNewExp(exp);
+                      handleShow("mod");
+                    }}
+                  />
                 </div>
               )}
             </Col>
@@ -175,7 +182,7 @@ const Esperienza = () => {
       {/* MODALE PER MODIFICARE ESPERIENZA */}
       <Modal show={showMod} onHide={() => handleClose("mod")}>
         <Modal.Header closeButton>
-          <Modal.Title>Aggiungi un'Esperienza</Modal.Title>
+          <Modal.Title>Modifica Esperienza</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form id="addExp" onSubmit={handleSubmit}>
@@ -226,7 +233,7 @@ const Esperienza = () => {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button variant="secondary" onClick={() => handleClose("mod")}>
             Close
           </Button>
           <Button type="submit" form="addExp" variant="success">
