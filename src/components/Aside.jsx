@@ -6,8 +6,7 @@ const Aside = ({ title, button }) => {
   const [profiles, setProfiles] = useState([]);
 
   const URL = "https://striveschool-api.herokuapp.com/api/profile";
-  const myKey =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODNlYjRiM2IxMGJmMDAwMTVjZjIyYTUiLCJpYXQiOjE3NDg5Mzk5NTUsImV4cCI6MTc1MDE0OTU1NX0.zh-IjjvBH7lFylWQ859wQLX3ikU4PgAHgAvYStILYGo";
+  const myKey = import.meta.env.VITE_STRIVE_TOKEN;
 
   const fetchProfiles = async () => {
     try {

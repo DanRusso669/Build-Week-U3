@@ -1,7 +1,15 @@
 import { Button, Col, Container, Image, Row } from "react-bootstrap";
 import ButtonShowAll from "./ButtonShowAll";
+import ImageInput from "./ImageInput";
 
 const AsidePage = () => {
+  const endpointProfile =
+    "https://striveschool-api.herokuapp.com/api/profile/:userId/picture";
+  const endpointPost =
+    "https://striveschool-api.herokuapp.com/api/posts/:postId";
+  const endpointExperience =
+    "https://striveschool-api.herokuapp.com/api/profile/:userId/experiences/:expId/picture";
+
   return (
     <>
       <div className="bg-light rounded p-3 mt-4 rounded-bottom-0 border-bottom-0 border">
@@ -59,6 +67,9 @@ const AsidePage = () => {
         </Container>
       </div>
       <ButtonShowAll />
+      <ImageInput endpoint={endpointProfile} />
+      <ImageInput endpoint={endpointPost} />
+      <ImageInput endpoint={endpointExperience} />
     </>
   );
 };

@@ -1,0 +1,32 @@
+import { useState } from "react";
+import { Button, Form } from "react-bootstrap";
+
+const ImageInput = ({ endpoint }) => {
+  const [image, setImage] = useState(null);
+
+  const handleImage = (e) => {
+    const fileSelected = e.target.files[0];
+    setImage(fileSelected);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData();
+    formData.append("image", image);
+    await fetch(endpoint, {
+      method: "POST",
+      body: formData,
+    });
+  };
+  return (
+    <Form onSubmit={handleSubmit}>
+      <Form.Group controlId="formFile" className="mb-3">
+        <Form.Label>Carica un'immagine</Form.Label>
+        <Form.Control type="file" accept="image/*" onChange={handleImage} />
+      </Form.Group>
+      <Button type="submit">Invia</Button>
+    </Form>
+  );
+};
+export default ImageInput;
