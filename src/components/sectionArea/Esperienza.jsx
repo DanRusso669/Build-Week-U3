@@ -76,15 +76,17 @@ const Esperienza = () => {
           >
             <Col xs={3} sm={2} md={3} lg={2} xl={1}>
               <Image className="experienceImages" src={exp.image} />
-              {hover.selectedRow === exp._id && <TrashFill className="mt-4 trashBin" onClick={() => handleClick(exp._id)} />}
             </Col>
-            <Col xs={9} sm={10} md={9} lg={10} xl={11} className="pb-4">
+            <Col xs={7} sm={8} md={6} lg={8} xl={10} className="pb-4">
               <p className="fw-bold">{exp.role}</p>
               <p>{exp.company}</p>
               <p className="fw-light">
                 {format(parseISO(`${exp.startDate}`), "do MMM, yyyy")} · {format(parseISO(`${exp.endDate}`), "do MMM, yyyy")}
               </p>
               <p className="fw-semibold mt-2">{exp.description}</p>
+            </Col>
+            <Col xs={2} sm={2} md={3} lg={2} xl={1}>
+              {hover.selectedRow === exp._id && <TrashFill className="mt-4 trashBin" onClick={() => handleClick(exp._id)} />}
             </Col>
           </Row>
         ))}

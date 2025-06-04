@@ -1,6 +1,8 @@
 export const GET_EXPERS = "GET_EXPERS";
+export const GET_PROFILE = "GET_PROFILE";
 
 export const getExpersAction = data => ({ type: GET_EXPERS, payload: data });
+export const getProfile = data => ({ type: GET_PROFILE, payload: data });
 
 const key = import.meta.env.VITE_STRIVE_TOKEN;
 const id = import.meta.env.VITE_STRIVE_ID;
@@ -28,18 +30,13 @@ export const fetchExperiences = () => {
   };
 };
 
-export const GET_PROFILE = "GET_PROFILE";
-export const getProfile = data => ({ type: GET_PROFILE, payload: data });
-const key2 = import.meta.env.VITE_STRIVE_TOKEN;
-console.log(key2);
-
 export const fetchProfile = () => {
   return async dispatch => {
     try {
       const resp = await fetch(`https://striveschool-api.herokuapp.com/api/profile/me`, {
         headers: {
           "Content-Type": "application/json",
-          Authorization: "Bearer " + key2,
+          Authorization: "Bearer " + key,
         },
       });
 
