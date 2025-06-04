@@ -23,6 +23,12 @@ p {
   max-width: 50px;
 }
 
+.trashBin {
+  color: red;
+  font-size: 20px;
+  cursor: pointer;
+}
+
 /* ASIDE */
 .imgProfiles {
   max-width: 50px;
