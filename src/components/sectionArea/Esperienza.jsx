@@ -1,7 +1,23 @@
 import { Col, Image, Row } from "react-bootstrap";
 import ButtonShowAll from "../ButtonShowAll";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { fetchExperiences } from "../../redux/actions";
 
 const Esperienza = () => {
+  const experiences = useSelector(state => state.experiences.content);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchExperiences());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    console.log(experiences);
+  });
+
   return (
     <>
       <div className="rounded-top-3 mt-2 bg-white p-4 border border-bottom-0" id="activityArea">
@@ -28,10 +44,10 @@ const Esperienza = () => {
             />
           </Col>
           <Col xs={9} sm={10} md={10} lg={11} className="pb-4">
-            <p className="fw-bold">Teacher & Front-end developer: HTML5, CSS3, SASS, UI/UX, ReactJS, Redux, TypeScript</p>
-            <p>Strive School</p>
-            <p className="fw-light">giu 2019 - Presente · 6 anni 1 mese</p>
-            <p className="fw-semibold mt-2">GitHub, Applicazioni Web e +15 competenze</p>
+            <p className="fw-bold">Role</p>
+            <p>company</p>
+            <p className="fw-light">start date + end date</p>
+            <p className="fw-semibold mt-2">description</p>
           </Col>
         </Row>
       </div>
