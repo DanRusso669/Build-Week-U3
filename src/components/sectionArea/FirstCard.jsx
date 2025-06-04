@@ -1,23 +1,18 @@
-import { Container, Card, Button, Row, Col } from "react-bootstrap";
+import { Container, Card, Row, Col, Button } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProfile } from "../../redux/actions";
 
 const FirstCard = () => {
-  const user = {
-    name: "Mario",
-    surname: "Rossi",
-    email: "mario@rossi.it",
-    username: "mario88",
-    bio: "Freelance developer",
-    title: "Full Stack Web Developer",
-    area: "Milan",
-    country: "Italy",
-  };
+  const profile = useSelector((state) => state.profile.content);
+  const dispatch = useDispatch();
+  dispatch(fetchProfile());
 
   return (
     <Container className="p-0 mt-4">
       <Card className="border rounded-3">
         <div style={{ position: "relative" }}>
           <Card.Img
-            src="https://i.imgur.com/bLQ1iTC.png"
+            src={profile.image}
             style={{
               height: "12rem",
               objectFit: "cover",
@@ -27,7 +22,7 @@ const FirstCard = () => {
           />
 
           <img
-            src=""
+            src={profile.image}
             alt="Foto profilo"
             style={{
               width: "5rem",
@@ -46,19 +41,19 @@ const FirstCard = () => {
           <Row>
             <Col md={8} className="align-items-center">
               <h4 className="mb-1">
-                {user.name} {user.surname}
+                {profile.name} {profile.surname}
               </h4>
               <p className="text-muted mb-1" style={{ fontSize: "1rem" }}>
-                <span className="fw-semibold">{user.title}</span>
+                <span className="fw-semibold">{profile.title}</span>
               </p>
               <p className="text-muted mb-1" style={{ fontSize: "1rem" }}>
-                {user.area}, {user.country} ·{" "}
+                {profile.area}
                 <a href="#" style={{ textDecoration: "none" }}>
                   Informazioni di contatto
                 </a>
               </p>
               <p className="text-muted mb-2" style={{ fontSize: "1rem" }}>
-                <span className="fw-semibold">Piu di 500 </span>
+                <span className="fw-semibold">Più di 500 </span>
                 collegamenti
               </p>
 
