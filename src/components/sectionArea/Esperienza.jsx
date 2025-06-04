@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { deleteExperiences, fetchExperiences, postExperiences } from "../../redux/actions";
 import { format, parseISO } from "date-fns";
-import { Pencil, TrashFill } from "react-bootstrap-icons";
+import { Pencil, TrashFill, PlusCircle } from "react-bootstrap-icons";
 
 const Esperienza = () => {
   const experiences = useSelector(state => state.experiences.content);
@@ -65,7 +65,7 @@ const Esperienza = () => {
       <div className="rounded-top-3 mt-2 bg-white p-4 border border-bottom-0" id="activityArea">
         <div className="d-flex justify-content-between align-items-center">
           <h5>Esperienza</h5>
-          <Pencil onClick={handleShow} />
+          <PlusCircle onClick={handleShow} />
         </div>
         {experiences.map(exp => (
           <Row
@@ -77,7 +77,7 @@ const Esperienza = () => {
             <Col xs={3} sm={2} md={3} lg={2} xl={1}>
               <Image className="experienceImages" src={exp.image} />
             </Col>
-            <Col xs={7} sm={8} md={6} lg={8} xl={10} className="pb-4">
+            <Col xs={6} sm={8} md={6} lg={8} xl={9} className="pb-4">
               <p className="fw-bold">{exp.role}</p>
               <p>{exp.company}</p>
               <p className="fw-light">
@@ -85,8 +85,13 @@ const Esperienza = () => {
               </p>
               <p className="fw-semibold mt-2">{exp.description}</p>
             </Col>
-            <Col xs={2} sm={2} md={3} lg={2} xl={1}>
-              {hover.selectedRow === exp._id && <TrashFill className="mt-4 trashBin" onClick={() => handleClick(exp._id)} />}
+            <Col xs={3} sm={2} md={3} lg={2} xl={2}>
+              {hover.selectedRow === exp._id && (
+                <div className="d-flex justify-content-end align-items-center">
+                  <TrashFill className="trashBin" onClick={() => handleClick(exp._id)} />
+                  <Pencil className="ms-3 modifyIcon" />
+                </div>
+              )}
             </Col>
           </Row>
         ))}
