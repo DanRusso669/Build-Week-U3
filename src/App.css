@@ -137,3 +137,23 @@ p {
 .footerIcons {
   color: rgba(0, 0, 0, 0.678);
 }
+
+/* Messagistica */
+.hover-border:hover {
+  border-color: #2b2929 !important;
+  border-width: 1.6px !important;
+  background-color: #2b292900 !important;
+  color: #080808;
+}
+
+/* Stile per l'elemento attivo */
+.active-link {
+  border-bottom: 2px solid #323233;
+
+  color: #252525;
+}
+
+/* Stile per l'hover */
+.hover-nav:hover {
+  border-bottom: 2px solid #3f3e3e; /* Colore del bordo inferiore al passaggio del mouse */
+}
