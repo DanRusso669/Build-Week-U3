@@ -1,17 +1,21 @@
 import { Col, Image, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import InputText from "./InputText";
-import ImageInput from "../ImageInput";
 import { fetchProfile } from "../../redux/actions";
 import { CardHeading, CardImage, PlayBtnFill } from "react-bootstrap-icons";
+import { useEffect } from "react";
 
-const CreatePost = () => {
+const CreatePost = ({ onOpenModal }) => {
   const profile = useSelector((state) => state.profile.content);
   const dispatch = useDispatch();
-  dispatch(fetchProfile());
+
+  useEffect(() => {
+    dispatch(fetchProfile());
+  }, [dispatch]);
+
   return (
     <>
-      <Row className="justify-content-center ">
+      <Row className="justify-content-center">
         <Col xs={2}>
           <Image
             src={profile.image}
@@ -24,21 +28,33 @@ const CreatePost = () => {
           <InputText />
         </Col>
       </Row>
-      <Row className="justify-content-center">
+
+      <Row className="justify-content-between">
         <Col xs={3}>
-          <div className="d-flex align-items-center mt-3">
+          <div
+            className="d-flex align-items-center mt-3"
+            onClick={onOpenModal}
+            style={{ cursor: "pointer" }}
+          >
             <PlayBtnFill className="text-success fs-3 mx-2" />
             <div>Video</div>
           </div>
         </Col>
         <Col xs={3}>
-          <div className="d-flex align-items-center mt-3">
+          <div
+            className="d-flex align-items-center mt-3"
+            onClick={onOpenModal}
+            style={{ cursor: "pointer" }}
+          >
             <CardImage className="text-primary fs-3 mx-2" />
             <div>Foto</div>
           </div>
         </Col>
         <Col xs={5}>
-          <div className="d-flex align-items-center mt-3">
+          <div
+            className="d-flex align-items-center mt-3"
+            style={{ cursor: "pointer" }}
+          >
             <CardHeading className="text-danger fs-3 mx-2" />
             <div>Scrivi un articolo</div>
           </div>
@@ -47,4 +63,5 @@ const CreatePost = () => {
     </>
   );
 };
+
 export default CreatePost;

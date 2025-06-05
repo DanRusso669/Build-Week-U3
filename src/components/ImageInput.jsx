@@ -22,7 +22,11 @@ const ImageInput = ({ endpoint }) => {
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Group controlId="formFile" className="mb-2">
-        <Form.Control type="file" accept="image/*" onChange={handleImage} />
+        <Form.Control
+          type="file"
+          accept="image/*,video/*"
+          onChange={handleImage}
+        />
       </Form.Group>
     </Form>
   );

@@ -1,7 +1,6 @@
 import { Container, Row, Col } from "react-bootstrap";
 import AsideFooterDx from "./AsideFooterdx";
-import CardPost from "./homeComponets/CardPost";
-import CreatePost from "./homeComponets/CreatePost";
+import CentralCard from "./homeComponets/CentralCard";
 
 const Home = () => {
   return (
@@ -27,8 +26,7 @@ const Home = () => {
               className="rounded-3 mt-2 bg-white p-4 border"
               style={{ fontSize: "0.875rem" }}
             >
-              <CreatePost />
-              <CardPost />
+              <CentralCard />
             </Container>
           </Col>
           <Col xs={3}>
