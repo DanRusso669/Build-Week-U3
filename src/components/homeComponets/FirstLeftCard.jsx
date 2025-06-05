@@ -2,9 +2,10 @@ import { Button, Card } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProfile } from "../../redux/actions";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const FirstLeftCard = () => {
-  const profile = useSelector((state) => state.profile.content);
+  const profile = useSelector(state => state.profile.content);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -43,9 +44,9 @@ const FirstLeftCard = () => {
 
       <Card.Body className="pt-5 px-3" style={{ fontSize: "0.875rem" }}>
         <div className="d-flex flex-column">
-          <h5 className="mb-1">
+          <Link to={"/"} className="h5 text-decoration-none mb-1">
             {profile.name} {profile.surname}
-          </h5>
+          </Link>
           <p className="text-muted">{profile.title}</p>
           <p className="text-muted">{profile.area}</p>
           <Button variant="light" className="mt-2 border d-flex align-items-center gap-2">
