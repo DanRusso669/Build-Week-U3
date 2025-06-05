@@ -3,17 +3,17 @@ import ButtonShowAll from "./ButtonShowAll";
 import ImageInput from "./ImageInput";
 
 const AsidePage = () => {
-  const endpointProfile =
-    "https://striveschool-api.herokuapp.com/api/profile/:userId/picture";
-  const endpointPost =
-    "https://striveschool-api.herokuapp.com/api/posts/:postId";
-  const endpointExperience =
-    "https://striveschool-api.herokuapp.com/api/profile/:userId/experiences/:expId/picture";
+  // const endpointProfile =
+  //   "https://striveschool-api.herokuapp.com/api/profile/:userId/picture";
+  // const endpointPost =
+  //   "https://striveschool-api.herokuapp.com/api/posts/:postId";
+  // const endpointExperience =
+  //   "https://striveschool-api.herokuapp.com/api/profile/:userId/experiences/:expId/picture";
 
   return (
     <>
       <div className="bg-light rounded p-3 mt-4 rounded-bottom-0 border-bottom-0 border">
-        <h3 className="text-dark">Potrebbe interessarti</h3>
+        <h4 className="text-dark">Potrebbe interessarti</h4>
         <p>Pagine per te</p>
         <Container>
           <Row className="d-flex justify-content-center mx-auto mt-2">
@@ -67,9 +67,9 @@ const AsidePage = () => {
         </Container>
       </div>
       <ButtonShowAll />
-      <ImageInput endpoint={endpointProfile} />
+      {/* <ImageInput endpoint={endpointProfile} />
       <ImageInput endpoint={endpointPost} />
-      <ImageInput endpoint={endpointExperience} />
+      <ImageInput endpoint={endpointExperience} /> */}
     </>
   );
 };

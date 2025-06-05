@@ -23,6 +23,7 @@ import Prizes from "./components/sectionArea/Prizes";
 import Languages from "./components/sectionArea/Languages";
 import Causes from "./components/sectionArea/Causes";
 import Interests from "./components/sectionArea/Interests";
+import AsideLanguage from "./components/AsideLanguage";
 
 function App() {
   return (
@@ -51,8 +52,12 @@ function App() {
                     <Causes />
                   </Col>
                   <Col xs={12} md={5} lg={5} xl={4}>
+                    <AsideLanguage />
                     <Aside title={"Altri profili per te"} button={"Segui"} />
-                    <Aside title={"Persone che potresti conoscere"} button={"Aggiungi"} />
+                    <Aside
+                      title={"Persone che potresti conoscere"}
+                      button={"Aggiungi"}
+                    />
                     <AsidePage />
                   </Col>
                 </Row>
@@ -87,7 +92,10 @@ function App() {
                   </Col>
                   <Col xs={12} md={5} lg={5} xl={4}>
                     <Aside title={"Altri profili per te"} button={"Segui"} />
-                    <Aside title={"Persone che potresti conoscere"} button={"Aggiungi"} />
+                    <Aside
+                      title={"Persone che potresti conoscere"}
+                      button={"Aggiungi"}
+                    />
                     <AsidePage />
                   </Col>
                 </Row>
