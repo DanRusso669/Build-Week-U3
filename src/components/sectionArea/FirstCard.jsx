@@ -4,7 +4,7 @@ import { fetchProfile } from "../../redux/actions";
 import { useEffect } from "react";
 
 const FirstCard = () => {
-  const profile = useSelector(state => state.profile.content);
+  const profile = useSelector((state) => state.profile.content);
   const dispatch = useDispatch();
 
   useEffect(() => {
