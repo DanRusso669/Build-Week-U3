@@ -44,6 +44,7 @@ const Esperienza = () => {
         description: "",
         area: "",
         image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSYbP-248zDkKcJG_swsx0pK2Hhe8hwE0fHQ&s",
+        id: "",
       });
       setShow(true);
     } else if (type === "mod") {
@@ -92,7 +93,7 @@ const Esperienza = () => {
               <p className="fw-bold">{exp.role}</p>
               <p>{exp.company}</p>
               <p className="fw-light">
-                {format(parseISO(`${exp.startDate}`), "do MMM, yyyy")} · {format(parseISO(`${exp.endDate}`), "do MMM, yyyy")}
+                {format(parseISO(`${exp.startDate}`), "dd-MM-yyyy")} · {format(parseISO(`${exp.endDate}`), "dd-MM-yyyy")}
               </p>
               <p className="fw-semibold mt-2">{exp.description}</p>
             </Col>
@@ -104,7 +105,16 @@ const Esperienza = () => {
                     className="ms-3 modifyIcon"
                     onClick={() => {
                       setSelectedExper(exp);
-                      setNewExp(exp);
+                      setNewExp({
+                        role: exp.role,
+                        company: exp.company,
+                        startDate: format(parseISO(`${exp.startDate}`), "yyyy-MM-dd"),
+                        endDate: format(parseISO(`${exp.endDate}`), "yyyy-MM-dd"),
+                        description: exp.description,
+                        area: exp.area,
+                        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSYbP-248zDkKcJG_swsx0pK2Hhe8hwE0fHQ&s",
+                        id: exp._id,
+                      });
                       handleShow("mod");
                     }}
                   />
@@ -213,11 +223,22 @@ const Esperienza = () => {
             </Form.Group>
             <Form.Group className="mb-3" controlId="dataInizio">
               <Form.Label>Data Inizio</Form.Label>
-              <Form.Control type="date" required onChange={e => handleChange("startDate", e.target.value)} value={newExp.startDate} />
+              <Form.Control
+                type="date"
+                required
+                onChange={e => handleChange("startDate", e.target.value)}
+                value={newExp.startDate}
+                // value={format(parseISO(`${newExp.startDate}`), "yyyy-MM-dd")}
+              />
             </Form.Group>
             <Form.Group className="mb-3" controlId="dataFine">
               <Form.Label>Data Fine</Form.Label>
-              <Form.Control type="date" required onChange={e => handleChange("endDate", e.target.value)} value={newExp.endDate} />
+              <Form.Control
+                type="date"
+                required
+                onChange={e => handleChange("endDate", e.target.value)}
+                // value={format(parseISO(`${newExp.startDate}`), "yyyy-MM-dd")}
+              />
             </Form.Group>
             <Form.Group className="mb-3" controlId="description">
               <Form.Label>Descrizione</Form.Label>
