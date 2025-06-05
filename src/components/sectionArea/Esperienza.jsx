@@ -248,6 +248,7 @@ const Esperienza = () => {
                 type="date"
                 required
                 onChange={e => handleChange("endDate", e.target.value)}
+                value={newExp.endDate}
                 // value={format(parseISO(`${newExp.startDate}`), "yyyy-MM-dd")}
               />
             </Form.Group>
