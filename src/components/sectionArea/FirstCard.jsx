@@ -82,7 +82,7 @@ const FirstCard = () => {
               <Card className="mb-2">
                 <div className="d-flex">
                   <img
-                    src=""
+                    src={profile.image}
                     alt="foto"
                     className="me-3"
                     style={{
@@ -93,7 +93,7 @@ const FirstCard = () => {
                     }}
                   />
 
-                  <div>
+                  <div className="d-flex align-items-center">
                     <p className="fw-semibold" style={{ fontSize: "0.9rem" }}>
                       Senior Developer
                     </p>

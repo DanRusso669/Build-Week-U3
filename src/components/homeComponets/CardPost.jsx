@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Button, Col, Image, Row } from "react-bootstrap";
 import { GlobeAmericasFill, ThreeDots, X } from "react-bootstrap-icons";
+import { Link } from "react-router-dom";
 
 const CardPost = () => {
   const [posts, setPosts] = useState([]);
@@ -32,25 +33,19 @@ const CardPost = () => {
   };
   return (
     <>
-      {posts.map((post) => (
-        <Row key={post.id} className="mt-3 pt-3 border border rounded-3 ">
+      {posts.map(post => (
+        <Row key={post._id} className="mt-3 pt-3 border border rounded-3 ">
           <Col xs={2}>
-            <Image
-              src={post.user.image}
-              alt="profileImage"
-              className="imgProfiles ms-2 mt-2 me-1"
-            />
+            <Image src={post.user.image} alt="profileImage" className="imgProfiles ms-2 mt-2 me-1" />
           </Col>
           <Col xs={10}>
             <Row className="justify-content-between">
               <Col xs={6} className="pt-2 me-1">
-                <h6 className="m-0">
+                <Link to={`/profilo/${post.user._id}`} className="h6 m-0 text-decoration-none">
                   {post.user.name + " " + post.user.surname}
-                </h6>
+                </Link>
                 <p>{post.user.area}</p>
-                <p className="text-secondary m-0 paragraf">
-                  {post.user.username}
-                </p>
+                <p className="text-secondary m-0 paragraf">{post.user.username}</p>
                 <span className="paragraf">
                   5 giorni • <GlobeAmericasFill />
                 </span>
