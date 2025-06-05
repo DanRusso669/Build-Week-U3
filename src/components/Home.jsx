@@ -1,9 +1,11 @@
 import { Container, Row, Col } from "react-bootstrap";
-import AsideFooterDx from "./AsideFooterdx";
 import FirstLeftCard from "./homeComponets/FirstLeftCard";
 import SecondLeftComponent from "./homeComponets/SecondLeftComponent";
 import ThirdLeftComponent from "./homeComponets/ThirdLeftComponent";
 import FourthLeftComponent from "./homeComponets/FourthLeftComponent";
+import FirstRightCard from "./homeComponets/FirstRightCard";
+import SecondRightCard from "./homeComponets/SecondRightCard";
+import FooterRight from "./homeComponets/FooterRight";
 
 const Home = () => {
   return (
@@ -24,9 +26,9 @@ const Home = () => {
             </Container>
           </Col>
           <Col xs={3}>
-            <Container className="rounded-3 mt-2 bg-white p-4 border" style={{ fontSize: "0.875rem" }}>
-              <AsideFooterDx />
-            </Container>
+            <FirstRightCard />
+            <SecondRightCard />
+            <FooterRight />
           </Col>
         </Row>
       </Container>
