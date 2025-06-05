@@ -32,7 +32,7 @@ function App() {
         <MyNavbar />
         <Routes>
           <Route
-            path="/"
+            path="/profilo"
             element={
               <Container className="mainContainer">
                 <Row className="gx-5">
@@ -54,10 +54,7 @@ function App() {
                   <Col xs={12} md={5} lg={5} xl={4}>
                     <AsideLanguage />
                     <Aside title={"Altri profili per te"} button={"Segui"} />
-                    <Aside
-                      title={"Persone che potresti conoscere"}
-                      button={"Aggiungi"}
-                    />
+                    <Aside title={"Persone che potresti conoscere"} button={"Aggiungi"} />
                     <AsidePage />
                   </Col>
                 </Row>
@@ -92,10 +89,7 @@ function App() {
                   </Col>
                   <Col xs={12} md={5} lg={5} xl={4}>
                     <Aside title={"Altri profili per te"} button={"Segui"} />
-                    <Aside
-                      title={"Persone che potresti conoscere"}
-                      button={"Aggiungi"}
-                    />
+                    <Aside title={"Persone che potresti conoscere"} button={"Aggiungi"} />
                     <AsidePage />
                   </Col>
                 </Row>

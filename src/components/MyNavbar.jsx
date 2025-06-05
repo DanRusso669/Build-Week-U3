@@ -10,7 +10,7 @@ const MyNavbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const location = useLocation();
-  const profile = useSelector((state) => state.profile.content);
+  const profile = useSelector(state => state.profile.content);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -106,7 +106,7 @@ const MyNavbar = () => {
                         className="btn btn-outline-primary w-100 rounded-pill mb-2"
                         style={{ height: 35, backgroundColor: "white", borderColor: "#0d6efd" }}
                         as={Link}
-                        to="/"
+                        to="/profilo"
                         onClick={e => e.target.closest(".dropdown").querySelector(".dropdown-toggle").click()}
                       >
                         Visualizza Profilo

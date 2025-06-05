@@ -44,7 +44,7 @@ const FirstLeftCard = () => {
 
       <Card.Body className="pt-5 px-3" style={{ fontSize: "0.875rem" }}>
         <div className="d-flex flex-column">
-          <Link to={"/"} className="h5 text-decoration-none mb-1">
+          <Link to={"/profilo"} className="h5 text-decoration-none mb-1">
             {profile.name} {profile.surname}
           </Link>
           <p className="text-muted">{profile.title}</p>
