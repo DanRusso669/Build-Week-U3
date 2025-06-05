@@ -2,15 +2,18 @@ import { Container, Card, Row, Col, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProfile } from "../../redux/actions";
 import { useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 const FirstCard = () => {
-  const profile = useSelector((state) => state.profile.content);
+  const profile = useSelector(state => state.profile.content);
+
+  const { id } = useParams();
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchProfile());
+    dispatch(fetchProfile(id));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [id]);
 
   return (
     <Container className="p-0 mt-4">

@@ -1,16 +1,16 @@
 export const GET_EXPERS = "GET_EXPERS";
 export const GET_PROFILE = "GET_PROFILE";
 
-export const getExpersAction = (data) => ({ type: GET_EXPERS, payload: data });
-export const getProfile = (data) => ({ type: GET_PROFILE, payload: data });
+export const getExpersAction = data => ({ type: GET_EXPERS, payload: data });
+export const getProfile = data => ({ type: GET_PROFILE, payload: data });
 
 const key = import.meta.env.VITE_STRIVE_TOKEN;
 const id = import.meta.env.VITE_STRIVE_ID;
 
-export const fetchExperiences = () => {
-  return async (dispatch) => {
+export const fetchExperiences = (userId = id) => {
+  return async dispatch => {
     try {
-      const resp = await fetch(`https://striveschool-api.herokuapp.com/api/profile/${id}/experiences`, {
+      const resp = await fetch(`https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences`, {
         headers: {
           "Content-Type": "application/json",
           Authorization: "Bearer " + key,
@@ -30,10 +30,10 @@ export const fetchExperiences = () => {
   };
 };
 
-export const fetchProfile = () => {
-  return async (dispatch) => {
+export const fetchProfile = (userId = "me") => {
+  return async dispatch => {
     try {
-      const resp = await fetch(`https://striveschool-api.herokuapp.com/api/profile/me`, {
+      const resp = await fetch(`https://striveschool-api.herokuapp.com/api/profile/${userId}`, {
         headers: {
           "Content-Type": "application/json",
           Authorization: "Bearer " + key,
@@ -53,7 +53,7 @@ export const fetchProfile = () => {
 };
 
 export const manipulateExperiences = (method, newExp = {}, expId = "") => {
-  return async (dispatch) => {
+  return async dispatch => {
     try {
       const resp = await fetch(
         method === "POST"

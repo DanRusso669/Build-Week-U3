@@ -5,10 +5,12 @@ import { useEffect, useState } from "react";
 import { fetchExperiences, manipulateExperiences } from "../../redux/actions";
 import { format, parseISO } from "date-fns";
 import { Pencil, TrashFill, PlusCircle } from "react-bootstrap-icons";
+import { useParams } from "react-router-dom";
 
 const Esperienza = () => {
   const experiences = useSelector(state => state.experiences.content);
   const hover = useSelector(state => state.isHoverOn);
+  const params = useParams();
 
   const dispatch = useDispatch();
 
@@ -52,9 +54,9 @@ const Esperienza = () => {
   };
 
   useEffect(() => {
-    dispatch(fetchExperiences());
+    dispatch(fetchExperiences(params.id));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [params.id]);
 
   const handleSubmit = e => {
     e.preventDefault();
