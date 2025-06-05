@@ -10,7 +10,7 @@ const MyNavbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const location = useLocation();
-  const myProfile = useSelector((state) => state.profile.myProfile);
+  const myProfile = useSelector(state => state.profile.myProfile);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -106,8 +106,8 @@ const MyNavbar = () => {
                         className="btn btn-outline-primary w-100 rounded-pill mb-2"
                         style={{ height: 35, backgroundColor: "white", borderColor: "#0d6efd" }}
                         as={Link}
-                        to="/"
-                        onClick={(e) => e.target.closest(".dropdown").querySelector(".dropdown-toggle").click()}
+                        to="/profilo"
+                        onClick={e => e.target.closest(".dropdown").querySelector(".dropdown-toggle").click()}
                       >
                         Visualizza Profilo
                       </Button>
@@ -139,7 +139,7 @@ const MyNavbar = () => {
                       </a>
                     </div>
                     <Dropdown.Divider />
-                    <Dropdown.Item as={Link} to="/logout" onClick={(e) => e.target.closest(".dropdown").querySelector(".dropdown-toggle").click()}>
+                    <Dropdown.Item as={Link} to="/logout" onClick={e => e.target.closest(".dropdown").querySelector(".dropdown-toggle").click()}>
                       Esci
                     </Dropdown.Item>
                   </Dropdown.Menu>
