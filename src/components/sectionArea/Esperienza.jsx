@@ -2,7 +2,7 @@ import { Button, Col, Form, Image, Modal, Row } from "react-bootstrap";
 import ButtonShowAll from "../ButtonShowAll";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { deleteExperiences, fetchExperiences, postExperiences, putExperiences } from "../../redux/actions";
+import { fetchExperiences, manipulateExperiences } from "../../redux/actions";
 import { format, parseISO } from "date-fns";
 import { Pencil, TrashFill, PlusCircle } from "react-bootstrap-icons";
 
@@ -59,14 +59,14 @@ const Esperienza = () => {
   const handleSubmit = e => {
     e.preventDefault();
 
-    dispatch(postExperiences("POST", newExp));
+    dispatch(manipulateExperiences("POST", newExp));
     handleClose("add");
   };
 
   const handleSubmitModified = e => {
     e.preventDefault();
 
-    dispatch(postExperiences("PUT", newExp, selectedExper._id));
+    dispatch(manipulateExperiences("PUT", newExp, selectedExper._id));
     handleClose("mod");
   };
 
@@ -75,7 +75,7 @@ const Esperienza = () => {
   };
 
   const handleClick = id => {
-    dispatch(deleteExperiences(id));
+    dispatch(manipulateExperiences("DELETE", newExp, id));
   };
 
   return (
