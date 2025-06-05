@@ -1,1 +1,4 @@
-import React from "react";const Notifiche = () => {  return <h1>Notifiche</h1>;};export default Notifiche;
+const Notifiche = () => {
+  return <h1>Notifiche</h1>;
+};
+export default Notifiche;

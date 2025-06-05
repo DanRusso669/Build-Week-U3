@@ -1,1 +1,4 @@
-import React from "react";const Lavoro = () => {  return <h1>Lavoro</h1>;};export default Lavoro;
+const Lavoro = () => {
+  return <h1>Lavoro</h1>;
+};
+export default Lavoro;
