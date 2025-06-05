@@ -65,6 +65,36 @@ function App() {
           <Route path="/messaggistica" element={<Messaggistica />} />
           <Route path="/notifiche" element={<Notifiche />} />
           <Route path="/home" element={<Home />} />
+          <Route
+            path="/profilo/:id"
+            element={
+              <Container className="mainContainer">
+                <Row className="gx-5">
+                  <Col xs={12} md={7} lg={7} xl={8}>
+                    <FirstCard />
+                    <Informazioni />
+                    <ServiceSection />
+                    <Attività />
+                    <Projects />
+                    <Esperienza />
+                    <Competenze />
+                    <References />
+                    <Courses />
+                    <Prizes />
+                    <Languages />
+                    <Interests />
+                    <Causes />
+                  </Col>
+                  <Col xs={12} md={5} lg={5} xl={4}>
+                    <Aside title={"Altri profili per te"} button={"Segui"} />
+                    <Aside title={"Persone che potresti conoscere"} button={"Aggiungi"} />
+                    <AsidePage />
+                  </Col>
+                </Row>
+                <Footer />
+              </Container>
+            }
+          />
         </Routes>
         {/* <Container className="mainContainer">
           <Row className="gx-5">

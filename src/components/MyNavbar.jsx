@@ -121,7 +121,7 @@ const MyNavbar = () => {
                         style={{ height: 35, backgroundColor: "white", borderColor: "#0d6efd" }}
                         as={Link}
                         to="/"
-                        onClick={(e) => e.target.closest(".dropdown").querySelector(".dropdown-toggle").click()}
+                        onClick={e => e.target.closest(".dropdown").querySelector(".dropdown-toggle").click()}
                       >
                         Visualizza Profilo
                       </Button>
@@ -153,7 +153,7 @@ const MyNavbar = () => {
                     </div>
 
                     <Dropdown.Divider />
-                    <Dropdown.Item as={Link} to="/logout" onClick={(e) => e.target.closest(".dropdown").querySelector(".dropdown-toggle").click()}>
+                    <Dropdown.Item as={Link} to="/logout" onClick={e => e.target.closest(".dropdown").querySelector(".dropdown-toggle").click()}>
                       Esci
                     </Dropdown.Item>
                   </Dropdown.Menu>
