@@ -41,7 +41,7 @@ function App() {
         <MyNavbar />
         <Routes>
           <Route
-            path="/"
+            path="/profilo"
             element={
               <Container className="mainContainer">
                 <Row className="gx-5">

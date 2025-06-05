@@ -21,7 +21,7 @@ const CreatePost = ({ onOpenModal }) => {
         <Col xs={2}>
           <Image
             onClick={() => {
-              navigate("/");
+              navigate("/profilo");
             }}
             src={profile.image}
             alt="profileImage"

@@ -85,7 +85,7 @@ const Esperienza = () => {
       <div className="rounded-top-3 mt-2 bg-white p-4 border border-bottom-0" id="activityArea">
         <div className="d-flex justify-content-between align-items-center">
           <h5>Esperienza</h5>
-          <PlusCircle onClick={() => handleShow("add")} />
+          {!params.id && <PlusCircle onClick={() => handleShow("add")} />}
         </div>
         {experiences.map(exp => (
           <Row
@@ -110,7 +110,7 @@ const Esperienza = () => {
               <p className="fw-semibold mt-2">{exp.description}</p>
             </Col>
             <Col xs={3} sm={2} md={3} lg={2} xl={2}>
-              {hover.selectedRow === exp._id && (
+              {!params.id && hover.selectedRow === exp._id && (
                 <div className="d-flex justify-content-end align-items-center">
                   <TrashFill className="trashBin" onClick={() => handleClick(exp._id)} />
                   <Pencil

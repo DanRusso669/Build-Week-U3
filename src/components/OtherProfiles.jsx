@@ -1,13 +1,23 @@
 import { Button, Col, Container, Image, Row } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const OtherProfiles = ({ profile, button, title }) => {
+  const navigate = useNavigate();
+
   return (
     <>
       <Container>
         <Row className="d-flex justify-content-center mx-auto mt-2">
           <Col xs={3}>
-            <Image src={profile.image} alt="Profile" className="imgProfiles" roundedCircle />
+            <Image
+              src={profile.image}
+              alt="Profile"
+              className="imgProfiles"
+              roundedCircle
+              onClick={() => {
+                navigate(`/profilo/${profile._id}`);
+              }}
+            />
           </Col>
           <Col xs={9} className="mb-3">
             <span>
