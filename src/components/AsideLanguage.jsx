@@ -4,7 +4,7 @@ import { Pencil } from "react-bootstrap-icons";
 const AsideLanguage = () => {
   return (
     <>
-      <div className="bg-light rounded p-3 mt-4 rounded-bottom-0 border-bottom-0 border">
+      <div className="bg-light rounded p-3 mt-4 rounded-bottom-0 border border">
         <Col>
           <h4>
             Lingua del profilo <Pencil className="fs-5 ms-5" />
