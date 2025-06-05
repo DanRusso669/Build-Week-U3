@@ -38,6 +38,9 @@ p {
 /* ASIDE */
 .imgProfiles {
   max-width: 50px;
+  height: auto;
+  aspect-ratio: 2/2;
+  object-fit: cover;
 }
 
 /* HOME */
@@ -45,6 +48,10 @@ p {
 .newPost {
   background-color: rgb(255, 255, 255);
   font-weight: 500;
+}
+
+.paragraf {
+  font-size: 0.75rem;
 }
 
 .postNewHover:hover,
