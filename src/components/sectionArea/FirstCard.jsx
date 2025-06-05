@@ -4,11 +4,12 @@ import { fetchProfile } from "../../redux/actions";
 import { useEffect } from "react";
 
 const FirstCard = () => {
-  const profile = useSelector(state => state.profile.content);
+  const profile = useSelector((state) => state.profile.content);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchProfile());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -29,8 +30,8 @@ const FirstCard = () => {
             src={profile.image}
             alt="Foto profilo"
             style={{
-              width: "5rem",
-              height: "5rem",
+              width: "10rem",
+              height: "10rem",
               borderRadius: "50%",
               border: "3px solid white",
               position: "absolute",
@@ -53,6 +54,7 @@ const FirstCard = () => {
               <p className="text-muted mb-1" style={{ fontSize: "1rem" }}>
                 {profile.area}
                 <a href="#" style={{ textDecoration: "none" }}>
+                  {" "}
                   Informazioni di contatto
                 </a>
               </p>

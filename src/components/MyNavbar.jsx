@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Navbar, Nav, Container, Dropdown, Form, Button } from "react-bootstrap";
 import { Link, useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome, faBriefcase, faBell, faUserFriends, faCommentDots } from "@fortawesome/free-solid-svg-icons";
+import { faHome, faBriefcase, faBell, faUserFriends, faCommentDots, faSortDown } from "@fortawesome/free-solid-svg-icons";
 import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import { useSelector } from "react-redux";
 
@@ -38,7 +38,7 @@ const MyNavbar = () => {
                   className={`text-center d-flex flex-column align-items-center ${location.pathname === "/home" ? "active-link" : ""}`}
                 >
                   <FontAwesomeIcon icon={faHome} className="mb-1" />
-                  <span>Home</span>
+                  <span style={{ fontSize: "0.8rem" }}>Home</span>
                 </Nav.Link>
                 <Nav.Link
                   as={Link}
@@ -46,7 +46,7 @@ const MyNavbar = () => {
                   className={`text-center d-flex flex-column align-items-center ${location.pathname === "/rete" ? "active-link" : ""}`}
                 >
                   <FontAwesomeIcon icon={faUserFriends} className="mb-1" />
-                  <span>Rete</span>
+                  <span style={{ fontSize: "0.8rem" }}>Rete</span>
                 </Nav.Link>
                 <Nav.Link
                   as={Link}
@@ -54,7 +54,7 @@ const MyNavbar = () => {
                   className={`text-center d-flex flex-column align-items-center ${location.pathname === "/lavoro" ? "active-link" : ""}`}
                 >
                   <FontAwesomeIcon icon={faBriefcase} className="mb-1" />
-                  <span>Lavoro</span>
+                  <span style={{ fontSize: "0.8rem" }}>Lavoro</span>
                 </Nav.Link>
                 <Nav.Link
                   as={Link}
@@ -62,7 +62,7 @@ const MyNavbar = () => {
                   className={`text-center d-flex flex-column align-items-center ${location.pathname === "/messaggistica" ? "active-link" : ""}`}
                 >
                   <FontAwesomeIcon icon={faCommentDots} className="mb-1" />
-                  <span>Messaggistica</span>
+                  <span style={{ fontSize: "0.8rem" }}>Messaggistica</span>
                 </Nav.Link>
                 <Nav.Link
                   as={Link}
@@ -70,20 +70,23 @@ const MyNavbar = () => {
                   className={`text-center d-flex flex-column align-items-center ${location.pathname === "/notifiche" ? "active-link" : ""}`}
                 >
                   <FontAwesomeIcon icon={faBell} className="mb-1" />
-                  <span>Notifiche</span>
+                  <span style={{ fontSize: "0.8rem" }}>Notifiche</span>
                 </Nav.Link>
 
                 <Dropdown>
                   <Dropdown.Toggle
                     variant="light"
-                    className="text-center d-flex flex-column align-items-center"
+                    className="text-center d-flex flex-column "
                     style={{ boxShadow: "none", backgroundColor: "transparent", border: "none" }}
+                    bsPrefix="custom-toggle"
                   >
-                    <a href="/profile">
-                      <img src={profile.image} alt="User Avatar" className="rounded-circle" style={{ width: "20px", height: "20px" }} />
-                    </a>
-                    <span>Tu</span>
-                    <FontAwesomeIcon icon="caret-down" className="mt-1" />
+                    <span>
+                      <img src={profile.image} alt="User Avatar" className="rounded-circle" style={{ width: "20px", height: "20px" }} as={Link} to="/profile" />
+                    </span>
+                    <span className="d-flex align-items-center p-0 m-o">
+                      <span style={{ color: "#575757", fontSize: "0.8rem" }}>Tu</span>
+                      <FontAwesomeIcon className="ps-1" style={{ fontSize: "0.8rem" }} icon={faSortDown} />
+                    </span>
                   </Dropdown.Toggle>
                   <Dropdown.Menu align="end" style={{ width: "280px", boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.4)" }}>
                     {/*  DATI ACCOUNT DROPDOWN*/}
@@ -109,6 +112,7 @@ const MyNavbar = () => {
                         Visualizza Profilo
                       </Button>
                     </div>
+
                     <div className="d-flex flex-column align-items-start p-3">
                       <h6>Account</h6>
 
@@ -134,7 +138,6 @@ const MyNavbar = () => {
                         Account per la pubblicazione
                       </a>
                     </div>
-
                     <Dropdown.Divider />
                     <Dropdown.Item as={Link} to="/logout" onClick={(e) => e.target.closest(".dropdown").querySelector(".dropdown-toggle").click()}>
                       Esci
@@ -142,16 +145,20 @@ const MyNavbar = () => {
                   </Dropdown.Menu>
                 </Dropdown>
                 <div className="d-flex align-items-left border-start shadow-sm ps-2">
-                  <Dropdown>
+                  <Dropdown className="d-flex  flex-column align-items-center">
                     <Dropdown.Toggle
                       variant="light"
-                      className="text-center d-flex flex-column border-bottom align-items-center"
+                      className="d-flex row align-items-center"
                       style={{ boxShadow: "none", backgroundColor: "transparent", border: "none" }}
+                      bsPrefix="custom-toggle"
                     >
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" className="mb-1" viewBox="0 0 16 16">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" className="me-2" viewBox="0 0 16 16">
                         <path d="M1 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1zM1 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1zM1 12a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1z" />
                       </svg>
-                      <span>Per le aziende</span>
+                      <span>
+                        <span style={{ color: "#575757", fontSize: "0.8rem" }}>Per le aziende</span>
+                        <FontAwesomeIcon className="ps-1" style={{ fontSize: "0.8rem" }} icon={faSortDown} />
+                      </span>
                     </Dropdown.Toggle>
                     <Dropdown.Menu align="end">
                       <Dropdown.Item as={Link} to="/aziende/servizi">
