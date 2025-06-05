@@ -40,6 +40,21 @@ p {
   max-width: 50px;
 }
 
+/* HOME */
+
+.newPost {
+  background-color: rgb(255, 255, 255);
+  font-weight: 500;
+}
+
+.postNewHover:hover,
+.no-focus:focus {
+  box-shadow: none;
+  border-color: transparent;
+  outline: none;
+  background-color: rgb(240, 240, 240);
+}
+
 /* BUTTON SHOW MORE */
 
 .buttonShowMore a {
