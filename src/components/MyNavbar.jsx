@@ -1,28 +1,20 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Navbar, Nav, Container, Dropdown, Form, Button } from "react-bootstrap";
 import { Link, useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome, faBriefcase, faBell, faUserFriends, faCommentDots } from "@fortawesome/free-solid-svg-icons";
 import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
+import { useSelector } from "react-redux";
+
 const MyNavbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [messageImage, setMessageImage] = useState("");
+
   const location = useLocation();
+  const profile = useSelector((state) => state.profile.content);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-
-  useEffect(() => {
-    // Simulazione
-    const fetchImage = async () => {
-      const response = await fetch("https://api.example.com/message-image"); // URL dell'API
-      const data = await response.json();
-      setMessageImage(data.imageUrl); // l'URL dell'immagine
-    };
-
-    fetchImage();
-  }, []);
 
   return (
     <>
@@ -88,12 +80,7 @@ const MyNavbar = () => {
                     style={{ boxShadow: "none", backgroundColor: "transparent", border: "none" }}
                   >
                     <a href="/profile">
-                      <img
-                        src="src/assets/download.png" /* ---immagine proveniente dall'API */
-                        alt="User Avatar"
-                        className="rounded-circle"
-                        style={{ width: "20px", height: "20px" }}
-                      />
+                      <img src={profile.image} alt="User Avatar" className="rounded-circle" style={{ width: "20px", height: "20px" }} />
                     </a>
                     <span>Tu</span>
                     <FontAwesomeIcon icon="caret-down" className="mt-1" />
@@ -102,17 +89,13 @@ const MyNavbar = () => {
                     {/*  DATI ACCOUNT DROPDOWN*/}
                     <div className="d-flex align-items-center ">
                       <div className="d-flex justify-content-start align-items-center p-3">
-                        <img
-                          src="src/assets/download.png"
-                          /* ---immagine proveniente dall'API */ alt="User Avatar"
-                          className="rounded-circle"
-                          style={{ width: "60px", height: "60px" }}
-                        />
+                        <img src={profile.image} alt="User Avatar" className="rounded-circle" style={{ width: "60px", height: "60px" }} />
                       </div>
                       <div className="text-start ms-2">
-                        <h6 className="mb-0">Nome Utente</h6> {/* api */}
-                        <p className="text-secondary">Posizione</p>
-                        {/* api */}
+                        <h6 className="mb-0">
+                          {profile.name} {profile.surname}
+                        </h6>{" "}
+                        <p className="text-secondary">{profile.title}</p>
                       </div>
                     </div>
                     <div className="d-flex flex-column align-items-center px-3 border-bottom">
@@ -213,8 +196,8 @@ const MyNavbar = () => {
             }}
             onClick={toggleMenu}
           >
-            {messageImage ? (
-              <img src={messageImage} alt="Messaggi" style={{ width: "30px", height: "30px", borderRadius: "50%" }} className="me-2" />
+            {profile.image ? (
+              <img src={profile.image} alt="Messaggi" style={{ width: "30px", height: "30px", borderRadius: "50%" }} className="me-2" />
             ) : (
               <span>Caricamento...</span>
             )}
