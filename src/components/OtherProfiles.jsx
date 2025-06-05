@@ -1,5 +1,5 @@
 import { Button, Col, Container, Image, Row } from "react-bootstrap";
-import ButtonShowAll from "./ButtonShowAll";
+import { Link } from "react-router-dom";
 
 const OtherProfiles = ({ profile, button, title }) => {
   return (
@@ -7,19 +7,13 @@ const OtherProfiles = ({ profile, button, title }) => {
       <Container>
         <Row className="d-flex justify-content-center mx-auto mt-2">
           <Col xs={3}>
-            <Image
-              src={profile.image}
-              alt="Profile"
-              className="imgProfiles"
-              roundedCircle
-            />
+            <Image src={profile.image} alt="Profile" className="imgProfiles" roundedCircle />
           </Col>
           <Col xs={9} className="mb-3">
             <span>
-              <a className="text-dark text-decoration-none fw-bold" href="#">
-                {profile.name}
-                {profile.surname}
-              </a>
+              <Link to={`/profilo/${profile._id}`} className="text-dark text-decoration-none fw-bold">
+                {profile.name} {profile.surname}
+              </Link>
             </span>
             {title === "Altri profili per te" && <span> • 3°+</span>}
             <p className="text-truncate">
