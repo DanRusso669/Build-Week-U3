@@ -1,11 +1,15 @@
 import { Container, Card, Row, Col, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProfile } from "../../redux/actions";
+import { useEffect } from "react";
 
 const FirstCard = () => {
-  const profile = useSelector((state) => state.profile.content);
+  const profile = useSelector(state => state.profile.content);
   const dispatch = useDispatch();
-  dispatch(fetchProfile());
+
+  useEffect(() => {
+    dispatch(fetchProfile());
+  }, []);
 
   return (
     <Container className="p-0 mt-4">
