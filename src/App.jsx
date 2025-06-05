@@ -1,4 +1,6 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import MyNavbar from "./components/MyNavbar";
 import Rete from "./components/Rete";
 import Lavoro from "./components/Lavoro";
@@ -24,8 +26,15 @@ import Languages from "./components/sectionArea/Languages";
 import Causes from "./components/sectionArea/Causes";
 import Interests from "./components/sectionArea/Interests";
 import AsideLanguage from "./components/AsideLanguage";
+import { fetchMyProfile } from "./redux/actions";
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchMyProfile());
+  }, [dispatch]);
+
   return (
     <>
       <BrowserRouter>
@@ -54,10 +63,7 @@ function App() {
                   <Col xs={12} md={5} lg={5} xl={4}>
                     <AsideLanguage />
                     <Aside title={"Altri profili per te"} button={"Segui"} />
-                    <Aside
-                      title={"Persone che potresti conoscere"}
-                      button={"Aggiungi"}
-                    />
+                    <Aside title={"Persone che potresti conoscere"} button={"Aggiungi"} />
                     <AsidePage />
                   </Col>
                 </Row>
@@ -92,10 +98,7 @@ function App() {
                   </Col>
                   <Col xs={12} md={5} lg={5} xl={4}>
                     <Aside title={"Altri profili per te"} button={"Segui"} />
-                    <Aside
-                      title={"Persone che potresti conoscere"}
-                      button={"Aggiungi"}
-                    />
+                    <Aside title={"Persone che potresti conoscere"} button={"Aggiungi"} />
                     <AsidePage />
                   </Col>
                 </Row>

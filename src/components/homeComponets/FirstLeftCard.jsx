@@ -10,6 +10,7 @@ const FirstLeftCard = () => {
 
   useEffect(() => {
     dispatch(fetchProfile());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
