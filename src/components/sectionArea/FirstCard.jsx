@@ -55,7 +55,7 @@ const FirstCard = () => {
                 <span className="fw-semibold">{profile.title}</span>
               </p>
               <p className="text-muted mb-1" style={{ fontSize: "1rem" }}>
-                {profile.area}
+                {profile.area}{" "}
                 <a href="#" style={{ textDecoration: "none" }}>
                   Informazioni di contatto
                 </a>

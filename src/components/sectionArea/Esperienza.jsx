@@ -100,9 +100,13 @@ const Esperienza = () => {
             <Col xs={6} sm={8} md={6} lg={8} xl={9} className="pb-4">
               <p className="fw-bold">{exp.role}</p>
               <p>{exp.company}</p>
-              <p className="fw-light">
-                {format(parseISO(`${exp.startDate}`), "dd-MM-yyyy")} · {format(parseISO(`${exp.endDate}`), "dd-MM-yyyy")}
-              </p>
+              {exp.startDate && exp.endDate ? (
+                <p className="fw-light">
+                  {format(parseISO(exp.startDate), "dd-MM-yyyy")} · {format(parseISO(exp.endDate), "dd-MM-yyyy")}
+                </p>
+              ) : (
+                <p className="fw-light">No Info</p>
+              )}
               <p className="fw-semibold mt-2">{exp.description}</p>
             </Col>
             <Col xs={3} sm={2} md={3} lg={2} xl={2}>
