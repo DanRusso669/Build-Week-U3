@@ -2,7 +2,7 @@ import { Container, Row, Col } from "react-bootstrap";
 
 const SecondRightCard = () => {
   return (
-    <Container className="rounded-3 mt-2 bg-white p-2 border py-3 fontSize">
+    <Container className="rounded-3 mt-2 p-2 border py-3 fontSize suggRimento position-sticky">
       <Row className="align-items-center gx-2">
         <Col
           xs="auto"

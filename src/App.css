@@ -57,6 +57,12 @@ p {
 
 /* HOME */
 
+.suggRimento {
+  top: 66.5px;
+  background-color: #ffffff !important;
+  z-index: 999;
+}
+
 .newPost {
   background-color: rgb(255, 255, 255);
   font-weight: 500;
