@@ -1,9 +1,5 @@
-import { Col, Container, Form, FormLabel, Row } from "react-bootstrap";
-import {
-  ShieldShaded,
-  GearFill,
-  QuestionCircleFill,
-} from "react-bootstrap-icons";
+import { Col, Form, FormLabel, Row } from "react-bootstrap";
+import { ShieldShaded, GearFill, QuestionCircleFill } from "react-bootstrap-icons";
 
 const Footer = () => {
   return (
@@ -47,9 +43,7 @@ const Footer = () => {
             <ShieldShaded className="me-2 fs-5 mt-1 footerIcons" />
             <span className="notClickableP">
               <h5>Trasparenza sui contenuti consigliati</h5>
-              <p className="fw-normal">
-                Scopri di più sui contenuti consigliati.
-              </p>
+              <p className="fw-normal">Scopri di più sui contenuti consigliati.</p>
             </span>
           </div>
         </Col>
@@ -57,10 +51,7 @@ const Footer = () => {
           <FormLabel id="labelLanguageSelector" className="mt-4">
             Seleziona la lingua
           </FormLabel>
-          <Form.Select
-            aria-label="Default select example"
-            id="languageSelector"
-          >
+          <Form.Select aria-label="Default select example" id="languageSelector">
             <option>Italiano (Italiano)</option>
             <option value="1">English (Inglese)</option>
             <option value="2">Deutsch (Tedesco)</option>
