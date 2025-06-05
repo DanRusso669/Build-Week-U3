@@ -1,7 +1,8 @@
-import { GET_PROFILE } from "../actions";
+import { GET_PROFILE, GET_MY_PROFILE } from "../actions";
 
 const initialState = {
   content: {},
+  myProfile: {},
 };
 
 const fetchedProfile = (state = initialState, action) => {
@@ -10,6 +11,11 @@ const fetchedProfile = (state = initialState, action) => {
       return {
         ...state,
         content: action.payload,
+      };
+    case GET_MY_PROFILE:
+      return {
+        ...state,
+        myProfile: action.payload,
       };
     default:
       return state;

@@ -5,11 +5,12 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const FirstLeftCard = () => {
-  const profile = useSelector(state => state.profile.content);
+  const profile = useSelector((state) => state.profile.content);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchProfile());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

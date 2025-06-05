@@ -10,7 +10,7 @@ const MyNavbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const location = useLocation();
-  const profile = useSelector((state) => state.profile.content);
+  const myProfile = useSelector((state) => state.profile.myProfile);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -81,7 +81,7 @@ const MyNavbar = () => {
                     bsPrefix="custom-toggle"
                   >
                     <span>
-                      <img src={profile.image} alt="User Avatar" className="rounded-circle" style={{ width: "20px", height: "20px" }} as={Link} to="/profile" />
+                      <img src={myProfile.image} alt="User Avatar" className="rounded-circle" style={{ width: "20px", height: "20px" }} />
                     </span>
                     <span className="d-flex align-items-center p-0 m-o">
                       <span style={{ color: "#575757", fontSize: "0.8rem" }}>Tu</span>
@@ -92,13 +92,13 @@ const MyNavbar = () => {
                     {/*  DATI ACCOUNT DROPDOWN*/}
                     <div className="d-flex align-items-center ">
                       <div className="d-flex justify-content-start align-items-center p-3">
-                        <img src={profile.image} alt="User Avatar" className="rounded-circle" style={{ width: "60px", height: "60px" }} />
+                        <img src={myProfile.image} alt="User Avatar" className="rounded-circle" style={{ width: "60px", height: "60px" }} />
                       </div>
                       <div className="text-start ms-2">
                         <h6 className="mb-0">
-                          {profile.name} {profile.surname}
+                          {myProfile.name} {myProfile.surname}
                         </h6>{" "}
-                        <p className="text-secondary">{profile.title}</p>
+                        <p className="text-secondary">{myProfile.title}</p>
                       </div>
                     </div>
                     <div className="d-flex flex-column align-items-center px-3 border-bottom">
@@ -107,7 +107,7 @@ const MyNavbar = () => {
                         style={{ height: 35, backgroundColor: "white", borderColor: "#0d6efd" }}
                         as={Link}
                         to="/"
-                        onClick={e => e.target.closest(".dropdown").querySelector(".dropdown-toggle").click()}
+                        onClick={(e) => e.target.closest(".dropdown").querySelector(".dropdown-toggle").click()}
                       >
                         Visualizza Profilo
                       </Button>
@@ -139,7 +139,7 @@ const MyNavbar = () => {
                       </a>
                     </div>
                     <Dropdown.Divider />
-                    <Dropdown.Item as={Link} to="/logout" onClick={e => e.target.closest(".dropdown").querySelector(".dropdown-toggle").click()}>
+                    <Dropdown.Item as={Link} to="/logout" onClick={(e) => e.target.closest(".dropdown").querySelector(".dropdown-toggle").click()}>
                       Esci
                     </Dropdown.Item>
                   </Dropdown.Menu>
@@ -203,8 +203,8 @@ const MyNavbar = () => {
             }}
             onClick={toggleMenu}
           >
-            {profile.image ? (
-              <img src={profile.image} alt="Messaggi" style={{ width: "30px", height: "30px", borderRadius: "50%" }} className="me-2" />
+            {myProfile.image ? (
+              <img src={myProfile.image} alt="Messaggi" style={{ width: "30px", height: "30px", borderRadius: "50%" }} className="me-2" />
             ) : (
               <span>Caricamento...</span>
             )}
