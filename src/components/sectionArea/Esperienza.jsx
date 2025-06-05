@@ -2,7 +2,7 @@ import { Button, Col, Form, Image, Modal, Row } from "react-bootstrap";
 import ButtonShowAll from "../ButtonShowAll";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { deleteExperiences, fetchExperiences, postExperiences } from "../../redux/actions";
+import { deleteExperiences, fetchExperiences, postExperiences, putExperiences } from "../../redux/actions";
 import { format, parseISO } from "date-fns";
 import { Pencil, TrashFill, PlusCircle } from "react-bootstrap-icons";
 
@@ -44,7 +44,6 @@ const Esperienza = () => {
         description: "",
         area: "",
         image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSYbP-248zDkKcJG_swsx0pK2Hhe8hwE0fHQ&s",
-        id: "",
       });
       setShow(true);
     } else if (type === "mod") {
@@ -62,6 +61,13 @@ const Esperienza = () => {
 
     dispatch(postExperiences("POST", newExp));
     handleClose("add");
+  };
+
+  const handleSubmitModified = e => {
+    e.preventDefault();
+
+    dispatch(postExperiences("PUT", newExp, selectedExper._id));
+    handleClose("mod");
   };
 
   const handleChange = (propName, propValue) => {
@@ -113,7 +119,6 @@ const Esperienza = () => {
                         description: exp.description,
                         area: exp.area,
                         image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSYbP-248zDkKcJG_swsx0pK2Hhe8hwE0fHQ&s",
-                        id: exp._id,
                       });
                       handleShow("mod");
                     }}
@@ -195,7 +200,7 @@ const Esperienza = () => {
           <Modal.Title>Modifica Esperienza</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form id="addExp" onSubmit={handleSubmit}>
+          <Form id="addExp" onSubmit={handleSubmitModified}>
             <Form.Group className="mb-3" controlId="ruolo">
               <Form.Label>Ruolo</Form.Label>
               <Form.Control

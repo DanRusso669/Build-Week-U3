@@ -52,17 +52,22 @@ export const fetchProfile = () => {
   };
 };
 
-export const postExperiences = (method, newExp) => {
+export const postExperiences = (method, newExp, expId = "") => {
   return async dispatch => {
     try {
-      const resp = await fetch(`https://striveschool-api.herokuapp.com/api/profile/${id}/experiences`, {
-        method: method,
-        body: JSON.stringify(newExp),
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + key,
-        },
-      });
+      const resp = await fetch(
+        method === "POST"
+          ? `https://striveschool-api.herokuapp.com/api/profile/${id}/experiences/`
+          : `https://striveschool-api.herokuapp.com/api/profile/${id}/experiences/${expId}`,
+        {
+          method: method,
+          body: JSON.stringify(newExp),
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + key,
+          },
+        }
+      );
 
       if (resp.ok) {
         dispatch(fetchExperiences());
