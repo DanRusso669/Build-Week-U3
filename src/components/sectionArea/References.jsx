@@ -3,7 +3,7 @@ import { Container, Tab, Tabs, Row, Col, Image } from "react-bootstrap";
 const References = () => {
   return (
     <>
-      <Container className="rounded-3 mt-2 bg-white p-4 border" style={{ fontSize: "0.875rem" }}>
+      <Container className="rounded-3 mt-2 bg-white p-4 border fontSize">
         <h5>Referenze</h5>
         <Tabs defaultActiveKey="ricevute" id="referenze-tabs" className="custom-tabs mb-3">
           <Tab eventKey="ricevute" title="Ricevute">
@@ -14,9 +14,7 @@ const References = () => {
               <Col>
                 <h6 className="mb-0">Ubeyt Demir</h6>
                 <p className="mb-1 text-muted">Head of Technology@EPICODE</p>
-                <p className="text-muted mb-2" style={{ fontSize: "0.875rem" }}>
-                  14 marzo 2023, Ubeyt ha avuto Stefano come superiore, ma non come manager diretto
-                </p>
+                <p className="text-muted mb-2 fontSize">14 marzo 2023, Ubeyt ha avuto Stefano come superiore, ma non come manager diretto</p>
                 <p className="mb-2">
                   I highly recommend Stefano Miceli as a Senior Frontend Developer and UI/UX expert. Stefano is not only exceptionally skilled but also a great
                   teacher.
@@ -37,9 +35,7 @@ const References = () => {
               <Col>
                 <h6 className="mb-0">Ubeyt Demir</h6>
                 <p className="mb-1 text-muted">Head of Technology@EPICODE</p>
-                <p className="text-muted mb-2" style={{ fontSize: "0.875rem" }}>
-                  14 marzo 2023, Ubeyt ha avuto Stefano come superiore, ma non come manager diretto
-                </p>
+                <p className="text-muted mb-2 fontSize">14 marzo 2023, Ubeyt ha avuto Stefano come superiore, ma non come manager diretto</p>
                 <p className="mb-2">
                   I highly recommend Stefano Miceli as a Senior Frontend Developer and UI/UX expert. Stefano is not only exceptionally skilled but also a great
                   teacher.
@@ -59,9 +55,7 @@ const References = () => {
               <Col>
                 <h6 className="mb-0">Ubeyt Demir</h6>
                 <p className="mb-1 text-muted">Head of Technology@EPICODE</p>
-                <p className="text-muted mb-2" style={{ fontSize: "0.875rem" }}>
-                  14 marzo 2023, Ubeyt ha avuto Stefano come superiore, ma non come manager diretto
-                </p>
+                <p className="text-muted mb-2 fontSize">14 marzo 2023, Ubeyt ha avuto Stefano come superiore, ma non come manager diretto</p>
                 <p className="mb-2">
                   I highly recommend Stefano Miceli as a Senior Frontend Developer and UI/UX expert. Stefano is not only exceptionally skilled but also a great
                   teacher.

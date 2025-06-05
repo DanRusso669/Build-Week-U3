@@ -2,7 +2,7 @@ import { Container, Row, Col } from "react-bootstrap";
 
 const ThirdLeftComponent = () => {
   return (
-    <Container className="rounded-3 mt-2 bg-white py-2 px-3 border" style={{ fontSize: "0.75rem" }}>
+    <Container className="rounded-3 mt-2 bg-white py-2 px-3 border fontSize075">
       <p lassName="text-muted mb-1">Accedi a strumenti e informazioni in esclusiva</p>
       <Row className="align-items-center">
         <Col xs={2}>

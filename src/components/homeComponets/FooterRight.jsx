@@ -2,7 +2,7 @@ import { Container, Dropdown } from "react-bootstrap";
 
 const FooterRight = () => {
   return (
-    <Container className="rounded-3 mt-3 py-2 px-3" style={{ fontSize: "0.75rem" }}>
+    <Container className="rounded-3 mt-3 py-2 px-3 fontSize075">
       <div className="d-flex justify-content-center flex-wrap mb-2">
         <span className="me-3">Informazioni</span>
         <span className="me-3">Accessibilità</span>
@@ -11,7 +11,7 @@ const FooterRight = () => {
 
       <div className="text-center mb-2">
         <Dropdown>
-          <Dropdown.Toggle variant="light" className="text-muted border-0 bg-transparent p-0" style={{ fontSize: "0.75rem" }}>
+          <Dropdown.Toggle variant="light" className="text-muted border-0 bg-transparent p-0 fontSize">
             Privacy e condizioni
           </Dropdown.Toggle>
           <Dropdown.Menu style={{ boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.4)" }}>
@@ -29,7 +29,7 @@ const FooterRight = () => {
 
       <div className="text-center mb-2">
         <Dropdown>
-          <Dropdown.Toggle variant="light" className="text-muted border-0 bg-transparent p-0" style={{ fontSize: "0.75rem" }}>
+          <Dropdown.Toggle variant="light" className="text-muted border-0 bg-transparent p-0 fontSize">
             Servizi alle aziende
           </Dropdown.Toggle>
           <Dropdown.Menu style={{ boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.4)" }}>

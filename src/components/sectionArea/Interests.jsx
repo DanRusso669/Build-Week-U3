@@ -1,7 +1,7 @@
 import { Container, Tabs, Tab, Row, Col, Image, Button } from "react-bootstrap";
 const Interests = () => {
   return (
-    <Container className="rounded-3 mt-2 bg-white p-4 border" style={{ fontSize: "0.875rem" }}>
+    <Container className="rounded-3 mt-2 bg-white p-4 border fontSize">
       <h5>Interessi</h5>
       <Tabs defaultActiveKey="topvoices" id="interessi-tabs" className="custom-tabs mb-3">
         <Tab eventKey="topvoices" title="Top Voices">

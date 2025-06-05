@@ -6,7 +6,6 @@ import FourthLeftComponent from "./homeComponets/FourthLeftComponent";
 import FirstRightCard from "./homeComponets/FirstRightCard";
 import SecondRightCard from "./homeComponets/SecondRightCard";
 import FooterRight from "./homeComponets/FooterRight";
-import AsideFooterDx from "./AsideFooterdx";
 import CentralCard from "./homeComponets/CentralCard";
 
 const Home = () => {
@@ -19,24 +18,10 @@ const Home = () => {
             <SecondLeftComponent />
             <ThirdLeftComponent />
             <FourthLeftComponent />
-            <Container
-              className="rounded-3 mt-2 bg-white p-4 border"
-              style={{ fontSize: "0.875rem" }}
-            >
-              <div>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed
-                  possimus, culpa voluptatum harum facere minima ipsum. Omnis
-                  sint quae qui!
-                </p>
-              </div>
-            </Container>
+            <Container className="rounded-3 mt-2 bg-white p-4 border fontSize"></Container>
           </Col>
           <Col xs={5}>
-            <Container
-              className="rounded-3 mt-2 bg-white p-4 border"
-              style={{ fontSize: "0.875rem" }}
-            >
+            <Container className="rounded-3 mt-2 bg-white p-4 border fontSize">
               <CentralCard />
             </Container>
           </Col>
@@ -44,12 +29,6 @@ const Home = () => {
             <FirstRightCard />
             <SecondRightCard />
             <FooterRight />
-            <Container
-              className="rounded-3 mt-2 bg-white p-4 border"
-              style={{ fontSize: "0.875rem" }}
-            >
-              <AsideFooterDx />
-            </Container>
           </Col>
         </Row>
       </Container>

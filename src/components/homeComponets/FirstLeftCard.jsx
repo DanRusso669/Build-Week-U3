@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const FirstLeftCard = () => {
-  const profile = useSelector(state => state.profile.content);
+  const profile = useSelector((state) => state.profile.content);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -14,10 +14,10 @@ const FirstLeftCard = () => {
 
   return (
     <Card className="rounded-3 mt-2 bg-white border">
-      <div style={{ position: "relative" }}>
+      <div className="position-relative">
         <Card.Img
           src={profile.image}
-          className="rounded-top-3"
+          className="rounded-top-3 "
           style={{
             height: "4rem",
             objectFit: "cover",
@@ -42,7 +42,7 @@ const FirstLeftCard = () => {
         />
       </div>
 
-      <Card.Body className="pt-5 px-3" style={{ fontSize: "0.875rem" }}>
+      <Card.Body className="pt-5 px-3 fontsize">
         <div className="d-flex flex-column">
           <Link to={"/"} className="h5 text-decoration-none mb-1">
             {profile.name} {profile.surname}

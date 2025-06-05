@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap";
 const Prizes = () => {
   return (
     <>
-      <Container className="rounded-3 mt-2 bg-white p-4 border" style={{ fontSize: "0.875rem" }}>
+      <Container className="rounded-3 mt-2 bg-white p-4 border fontSize">
         <h5 className="mb-3">Riconoscimenti e premi</h5>
         <h6>1° premio #HackBofrost - Hackathon powered by Bofrost</h6>
         <p className="mb-3">Rilasciato da Talent Garden Pordenone S.r.l. · giu 2016</p>

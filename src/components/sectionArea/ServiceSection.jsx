@@ -6,7 +6,7 @@ const ServiceSection = () => {
     <>
       <Container className="rounded-3 rounded-bottom-0 border-bottom-0 mt-2 bg-white p-4 border">
         <h5 className="mb-3">Servizi</h5>
-        <p className="fw-semibold" style={{ fontSize: "0.875rem" }}>
+        <p className="fw-semibold fontSize">
           Graphic Design • Progettazione dell’esperienza utente (UED) • Web Design • Ricerca UX • Interaction Design • Sviluppo Web • Consulenza informatica{" "}
         </p>
         <div className="mt-3">

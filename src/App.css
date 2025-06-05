@@ -11,7 +11,19 @@ h5,
 p {
   margin: 0;
 }
-
+/*Font-size*/
+.fontSize {
+  font-size: 0.875rem;
+}
+.fontSize0775 {
+  font-size: 0.775rem;
+}
+.fontSize075 {
+  font-size: 0.75rem;
+}
+.fontSize08 {
+  font-size: 0.8rem;
+}
 /* MAIN SECTION */
 
 #informazioniArea p,

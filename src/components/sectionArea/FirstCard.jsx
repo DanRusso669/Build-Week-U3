@@ -18,7 +18,7 @@ const FirstCard = () => {
   return (
     <Container className="p-0 mt-4">
       <Card className="border rounded-3">
-        <div style={{ position: "relative" }}>
+        <div className="position-relative">
           <Card.Img
             src={profile.image}
             style={{

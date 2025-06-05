@@ -38,7 +38,7 @@ const MyNavbar = () => {
                   className={`text-center d-flex flex-column align-items-center ${location.pathname === "/home" ? "active-link" : ""}`}
                 >
                   <FontAwesomeIcon icon={faHome} className="mb-1" />
-                  <span style={{ fontSize: "0.8rem" }}>Home</span>
+                  <span className="fontSize08">Home</span>
                 </Nav.Link>
                 <Nav.Link
                   as={Link}
@@ -46,7 +46,7 @@ const MyNavbar = () => {
                   className={`text-center d-flex flex-column align-items-center ${location.pathname === "/rete" ? "active-link" : ""}`}
                 >
                   <FontAwesomeIcon icon={faUserFriends} className="mb-1" />
-                  <span style={{ fontSize: "0.8rem" }}>Rete</span>
+                  <span className="fontSize08">Rete</span>
                 </Nav.Link>
                 <Nav.Link
                   as={Link}
@@ -54,7 +54,7 @@ const MyNavbar = () => {
                   className={`text-center d-flex flex-column align-items-center ${location.pathname === "/lavoro" ? "active-link" : ""}`}
                 >
                   <FontAwesomeIcon icon={faBriefcase} className="mb-1" />
-                  <span style={{ fontSize: "0.8rem" }}>Lavoro</span>
+                  <span className="fontSize08">Lavoro</span>
                 </Nav.Link>
                 <Nav.Link
                   as={Link}
@@ -62,7 +62,7 @@ const MyNavbar = () => {
                   className={`text-center d-flex flex-column align-items-center ${location.pathname === "/messaggistica" ? "active-link" : ""}`}
                 >
                   <FontAwesomeIcon icon={faCommentDots} className="mb-1" />
-                  <span style={{ fontSize: "0.8rem" }}>Messaggistica</span>
+                  <span className="fontSize08">Messaggistica</span>
                 </Nav.Link>
                 <Nav.Link
                   as={Link}
@@ -70,7 +70,7 @@ const MyNavbar = () => {
                   className={`text-center d-flex flex-column align-items-center ${location.pathname === "/notifiche" ? "active-link" : ""}`}
                 >
                   <FontAwesomeIcon icon={faBell} className="mb-1" />
-                  <span style={{ fontSize: "0.8rem" }}>Notifiche</span>
+                  <span className="fontSize08">Notifiche</span>
                 </Nav.Link>
 
                 <Dropdown>
@@ -107,7 +107,7 @@ const MyNavbar = () => {
                         style={{ height: 35, backgroundColor: "white", borderColor: "#0d6efd" }}
                         as={Link}
                         to="/"
-                        onClick={e => e.target.closest(".dropdown").querySelector(".dropdown-toggle").click()}
+                        onClick={(e) => e.target.closest(".dropdown").querySelector(".dropdown-toggle").click()}
                       >
                         Visualizza Profilo
                       </Button>
@@ -139,7 +139,7 @@ const MyNavbar = () => {
                       </a>
                     </div>
                     <Dropdown.Divider />
-                    <Dropdown.Item as={Link} to="/logout" onClick={e => e.target.closest(".dropdown").querySelector(".dropdown-toggle").click()}>
+                    <Dropdown.Item as={Link} to="/logout" onClick={(e) => e.target.closest(".dropdown").querySelector(".dropdown-toggle").click()}>
                       Esci
                     </Dropdown.Item>
                   </Dropdown.Menu>

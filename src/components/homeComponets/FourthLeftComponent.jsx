@@ -3,7 +3,7 @@ import { BsBookmarkFill, BsPeopleFill, BsNewspaper, BsCalendar } from "react-ico
 
 const FourthLeftComponent = () => {
   return (
-    <Container className="rounded-3 mt-2 bg-white py-2 px-4 border" style={{ fontSize: "0.75rem" }}>
+    <Container className="rounded-3 mt-2 bg-white py-2 px-4 border fontSize075">
       <Row className="align-items-center justify-content-start fw-semibold mt-1 mb-2 ">
         <Col xs={2}>
           <BsBookmarkFill />
