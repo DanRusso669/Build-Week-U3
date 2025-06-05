@@ -29,6 +29,12 @@ p {
   cursor: pointer;
 }
 
+.modifyIcon {
+  color: #007e00;
+  font-size: 20px;
+  cursor: pointer;
+}
+
 /* ASIDE */
 .imgProfiles {
   max-width: 50px;
