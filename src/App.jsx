@@ -72,7 +72,7 @@ function App() {
             }
           />
           <Route path="/rete" element={<Rete />} />
-          <Route path="/lavoro" element={<Lavoro />} />
+          <Route path="/lavoro/:query" element={<Lavoro />} />
           <Route path="/messaggistica" element={<Messaggistica />} />
           <Route path="/notifiche" element={<Notifiche />} />
           <Route path="/" element={<Home />} />
