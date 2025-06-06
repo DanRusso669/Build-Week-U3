@@ -4,37 +4,18 @@ import { Button, Col, Image, Row } from "react-bootstrap";
 import { GlobeAmericasFill, ThreeDots, X } from "react-bootstrap-icons";
 import { Link } from "react-router-dom";
 import ButtonsPost from "./ButtonsPost";
+import { fetchPosts } from "../../redux/actions";
+import { useDispatch, useSelector } from "react-redux";
 import CommentSection from "./CommentSection";
 
 const CardPost = () => {
-  const [posts, setPosts] = useState([]);
+  const posts = useSelector((state) => state.posts.content);
+  const dispatch = useDispatch();
   const [openComments, setOpenComments] = useState({});
 
   useEffect(() => {
-    fetchPosts();
+    dispatch(fetchPosts());
   }, []);
-
-  const URL = "https://striveschool-api.herokuapp.com/api/posts";
-  const myKey = import.meta.env.VITE_STRIVE_TOKEN;
-
-  const fetchPosts = async () => {
-    try {
-      const response = await fetch(URL, {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + myKey,
-        },
-      });
-      if (!response.ok) {
-        throw new Error("Errore nella fetch");
-      }
-      const data = await response.json();
-
-      setPosts(data.reverse().slice(25, 45));
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   const toggleComments = (postId) => {
     setOpenComments((prev) => ({

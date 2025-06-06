@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { Form } from "react-bootstrap";
+import { fetchPosts } from "../../redux/actions";
+import { useDispatch } from "react-redux";
 
 const InputText = () => {
   const [text, setText] = useState("");
   const token = import.meta.env.VITE_STRIVE_TOKEN;
+  const dispatch = useDispatch();
 
   const fetchPost = async (e) => {
     if (e.key === "Enter" && !e.shiftKey) {
@@ -23,6 +26,7 @@ const InputText = () => {
         }
 
         setText("");
+        dispatch(fetchPosts());
       } catch (error) {
         console.error(error);
       }
