@@ -75,7 +75,7 @@ function App() {
           <Route path="/lavoro" element={<Lavoro />} />
           <Route path="/messaggistica" element={<Messaggistica />} />
           <Route path="/notifiche" element={<Notifiche />} />
-          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route
             path="/profilo/:id"
             element={
