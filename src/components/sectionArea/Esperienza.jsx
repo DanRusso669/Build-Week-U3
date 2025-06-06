@@ -28,6 +28,16 @@ const Esperienza = () => {
   const [showMod, setShowMod] = useState(false);
   const [selectedExper, setSelectedExper] = useState(null);
 
+  // ALERT SE È ANDATO TUTTO BENE
+  const [everythingDone, setEverythingDone] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
+
+  const handleCloseAlert = () => setEverythingDone(false);
+  const handleShowAlert = message => {
+    setEverythingDone(true);
+    setModalMessage(message);
+  };
+
   const handleClose = type => {
     if (type === "add") {
       setShow(false);
@@ -63,6 +73,7 @@ const Esperienza = () => {
 
     dispatch(manipulateExperiences("POST", newExp));
     handleClose("add");
+    handleShowAlert("Hai aggiunto una nuova esperienza. ✔");
   };
 
   const handleSubmitModified = e => {
@@ -70,6 +81,7 @@ const Esperienza = () => {
 
     dispatch(manipulateExperiences("PUT", newExp, selectedExper._id));
     handleClose("mod");
+    handleShowAlert("Hai modificato questa esperienza. ✔");
   };
 
   const handleChange = (propName, propValue) => {
@@ -78,6 +90,7 @@ const Esperienza = () => {
 
   const handleClick = id => {
     dispatch(manipulateExperiences("DELETE", newExp, id));
+    handleShowAlert("Hai eliminato questa esperienza.✔");
   };
 
   return (
@@ -271,6 +284,19 @@ const Esperienza = () => {
           </Button>
           <Button type="submit" form="addExp" variant="success">
             Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
+      {/* MODALE CONFERMA POST-PUT-DELETE */}
+      <Modal show={everythingDone} onHide={handleCloseAlert}>
+        <Modal.Header closeButton>
+          <Modal.Title>È andato tutto bene!</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>{modalMessage}</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleCloseAlert}>
+            Close
           </Button>
         </Modal.Footer>
       </Modal>
