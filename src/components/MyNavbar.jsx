@@ -11,14 +11,14 @@ const MyNavbar = () => {
   const [query, setQuery] = useState("");
 
   const location = useLocation();
-  const myProfile = useSelector(state => state.profile.myProfile);
+  const myProfile = useSelector((state) => state.profile.myProfile);
   const navigate = useNavigate();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     navigate(`/lavoro/${query}`);
@@ -40,7 +40,7 @@ const MyNavbar = () => {
               className="me-2"
               aria-label="Search"
               value={query}
-              onChange={e => {
+              onChange={(e) => {
                 setQuery(e.target.value);
               }}
             />
@@ -121,11 +121,12 @@ const MyNavbar = () => {
                     </div>
                     <div className="d-flex flex-column align-items-center px-3 border-bottom">
                       <Button
-                        className="btn btn-outline-primary w-100 rounded-pill mb-2"
-                        style={{ height: 35, backgroundColor: "white", borderColor: "#0d6efd" }}
+                        variant="outline-primary"
+                        className="  w-100 rounded-pill mb-2"
+                        style={{ height: 35 }}
                         as={Link}
                         to="/profilo"
-                        onClick={e => e.target.closest(".dropdown").querySelector(".dropdown-toggle").click()}
+                        onClick={(e) => e.target.closest(".dropdown").querySelector(".dropdown-toggle").click()}
                       >
                         Visualizza Profilo
                       </Button>
@@ -157,7 +158,7 @@ const MyNavbar = () => {
                       </a>
                     </div>
                     <Dropdown.Divider />
-                    <Dropdown.Item as={Link} to="/logout" onClick={e => e.target.closest(".dropdown").querySelector(".dropdown-toggle").click()}>
+                    <Dropdown.Item as={Link} to="/logout" onClick={(e) => e.target.closest(".dropdown").querySelector(".dropdown-toggle").click()}>
                       Esci
                     </Dropdown.Item>
                   </Dropdown.Menu>
