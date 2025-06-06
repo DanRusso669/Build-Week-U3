@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom";
 import { fetchProfile } from "../../redux/actions";
 
 const FirstCard = () => {
-  const profile = useSelector((state) => state.profile.content);
+  const profile = useSelector(state => state.profile.content);
 
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -77,40 +77,42 @@ const FirstCard = () => {
           />
 
           {/* Bottone per caricare una nuova immagine */}
-          <Dropdown className="position-absolute" style={{ top: "15px", right: "15px" }}>
-            <Dropdown.Toggle
-              as="div"
-              className="d-flex align-items-center justify-content-center"
-              style={{
-                cursor: "pointer",
-                backgroundColor: "rgba(255, 255, 255, 0.38)",
-                padding: "0.5rem",
-                borderRadius: "50%",
-              }}
-              bsPrefix="custom-toggle"
-            >
-              <FontAwesomeIcon icon={faCamera} style={{ color: "#2f5eb1" }} />
-            </Dropdown.Toggle>
+          {!id && (
+            <Dropdown className="position-absolute" style={{ top: "15px", right: "15px" }}>
+              <Dropdown.Toggle
+                as="div"
+                className="d-flex align-items-center justify-content-center"
+                style={{
+                  cursor: "pointer",
+                  backgroundColor: "rgba(255, 255, 255, 0.38)",
+                  padding: "0.5rem",
+                  borderRadius: "50%",
+                }}
+                bsPrefix="custom-toggle"
+              >
+                <FontAwesomeIcon icon={faCamera} style={{ color: "#2f5eb1" }} />
+              </Dropdown.Toggle>
 
-            <Dropdown.Menu
-              align="end"
-              drop="up"
-              style={{
-                position: "absolute",
-                inset: "0px 0px auto auto",
-                transform: "translate(10px, 95px)",
-              }}
-            >
-              <Dropdown.Item href="#" onClick={handleShowModal}>
-                <FontAwesomeIcon className="me-2" icon={faArrowUpFromBracket} />
-                Carica nuova immagine
-              </Dropdown.Item>
-              <Dropdown.Item href="#" className="text-muted text-wrap">
-                <FontAwesomeIcon className="me-2" icon={faObjectGroup} />
-                Fai un'ottima prima impressione usando fino a 5 immagini
-              </Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
+              <Dropdown.Menu
+                align="end"
+                drop="up"
+                style={{
+                  position: "absolute",
+                  inset: "0px 0px auto auto",
+                  transform: "translate(10px, 95px)",
+                }}
+              >
+                <Dropdown.Item href="#" onClick={handleShowModal}>
+                  <FontAwesomeIcon className="me-2" icon={faArrowUpFromBracket} />
+                  Carica nuova immagine
+                </Dropdown.Item>
+                <Dropdown.Item href="#" className="text-muted text-wrap">
+                  <FontAwesomeIcon className="me-2" icon={faObjectGroup} />
+                  Fai un'ottima prima impressione usando fino a 5 immagini
+                </Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+          )}
 
           {/* Immagine del profilo */}
           <div className="position-relative">
@@ -128,24 +130,26 @@ const FirstCard = () => {
                 objectFit: "cover",
               }}
             />
-            <Button
-              className="position-absolute"
-              style={{
-                bottom: "-30px",
-                right: "650px",
-                backgroundColor: "#ffffff",
-                borderRadius: "50%",
-                width: "3.5rem",
-                height: "3.5rem",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
-              }}
-              onClick={handleShowModal}
-            >
-              <FontAwesomeIcon icon={faPlus} style={{ color: "#2f5eb1" }} />
-            </Button>
+            {!id && (
+              <Button
+                className="position-absolute"
+                style={{
+                  bottom: "-30px",
+                  right: "650px",
+                  backgroundColor: "#ffffff",
+                  borderRadius: "50%",
+                  width: "3.5rem",
+                  height: "3.5rem",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+                }}
+                onClick={handleShowModal}
+              >
+                <FontAwesomeIcon icon={faPlus} style={{ color: "#2f5eb1" }} />
+              </Button>
+            )}
           </div>
         </div>
 
@@ -193,7 +197,7 @@ const FirstCard = () => {
         <Modal.Body>
           <Form.Group controlId="formUrlProfile" className="mb-3">
             <Form.Label>Inserisci l'URL dell'immagine</Form.Label>
-            <Form.Control type="text" placeholder="src/assets/download.png" value={imageUrl} onChange={(e) => setImageUrl(e.target.value)} />
+            <Form.Control type="text" placeholder="src/assets/download.png" value={imageUrl} onChange={e => setImageUrl(e.target.value)} />
           </Form.Group>
           <Button variant="primary" onClick={handleUploadImage}>
             Salva immagine
