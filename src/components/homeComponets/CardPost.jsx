@@ -30,7 +30,7 @@ const CardPost = () => {
       }
       const data = await response.json();
 
-      setPosts(data.reverse().slice(10, 25));
+      setPosts(data.reverse().slice(25, 45));
     } catch (error) {
       console.log(error);
     }
@@ -99,9 +99,9 @@ const CardPost = () => {
                 e.preventDefault();
                 toggleComments(post._id);
               }}
-              className="text-decoration-none text-primary"
+              className="text-decoration-none text-primary m-1"
             >
-              {openComments[post._id] ? "nascondi commenti" : "mostra commenti"}
+              {openComments[post._id] ? "Nascondi commenti" : "Mostra commenti"}
             </a>
             {openComments[post._id] && <CommentSection elementId={post._id} />}
             {!openComments[post._id] && <ButtonsPost />}
