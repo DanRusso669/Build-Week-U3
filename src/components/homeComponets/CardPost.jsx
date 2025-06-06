@@ -1,38 +1,20 @@
 import { format, parseISO } from "date-fns";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Button, Col, Image, Row } from "react-bootstrap";
 import { GlobeAmericasFill, ThreeDots, X } from "react-bootstrap-icons";
 import { Link } from "react-router-dom";
 import ButtonsPost from "./ButtonsPost";
+import { fetchPosts } from "../../redux/actions";
+import { useDispatch, useSelector } from "react-redux";
 
 const CardPost = () => {
-  const [posts, setPosts] = useState([]);
+  const posts = useSelector((state) => state.posts.content);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    fetchPosts();
+    dispatch(fetchPosts());
   }, []);
 
-  const URL = "https://striveschool-api.herokuapp.com/api/posts";
-  const myKey = import.meta.env.VITE_STRIVE_TOKEN;
-
-  const fetchPosts = async () => {
-    try {
-      const response = await fetch(URL, {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + myKey,
-        },
-      });
-      if (!response.ok) {
-        throw new Error("Errore nella fetch");
-      }
-      const data = await response.json();
-
-      setPosts(data.reverse().slice(0, 20));
-    } catch (error) {
-      console.log(error);
-    }
-  };
   return (
     <>
       {posts.map((post) => (
