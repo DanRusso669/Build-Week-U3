@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Navbar, Nav, Container, Dropdown, Form, Button } from "react-bootstrap";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome, faBriefcase, faBell, faUserFriends, faCommentDots, faSortDown } from "@fortawesome/free-solid-svg-icons";
 import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
@@ -8,12 +8,21 @@ import { useSelector } from "react-redux";
 
 const MyNavbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [query, setQuery] = useState("");
 
   const location = useLocation();
   const myProfile = useSelector(state => state.profile.myProfile);
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+
+    navigate(`/lavoro/${query}`);
+    setQuery("");
   };
 
   return (
@@ -24,8 +33,17 @@ const MyNavbar = () => {
             <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn Logo" style={{ height: "40px" }} />
           </Navbar.Brand>
 
-          <Form className="d-flex mx-auto ms-2" style={{ width: "300px" }}>
-            <Form.Control type="search" placeholder="Cerca" className="me-2" aria-label="Search" />
+          <Form className="d-flex mx-auto ms-2" style={{ width: "300px" }} onSubmit={handleSubmit}>
+            <Form.Control
+              type="search"
+              placeholder="Cerca"
+              className="me-2"
+              aria-label="Search"
+              value={query}
+              onChange={e => {
+                setQuery(e.target.value);
+              }}
+            />
           </Form>
 
           <div>
@@ -50,7 +68,7 @@ const MyNavbar = () => {
                 </Nav.Link>
                 <Nav.Link
                   as={Link}
-                  to="/lavoro"
+                  to="/lavoro/none"
                   className={`text-center d-flex flex-column align-items-center ${location.pathname === "/lavoro" ? "active-link" : ""}`}
                 >
                   <FontAwesomeIcon icon={faBriefcase} className="mb-1" />
