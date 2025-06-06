@@ -18,7 +18,6 @@ const Home = () => {
             <SecondLeftComponent />
             <ThirdLeftComponent />
             <FourthLeftComponent />
-            <Container className="rounded-3 mt-2 bg-white p-4 border fontSize"></Container>
           </Col>
           <Col xs={5}>
             <Container className="rounded-3 mt-2 bg-white p-4 border fontSize">
