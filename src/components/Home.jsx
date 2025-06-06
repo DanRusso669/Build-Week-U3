@@ -11,21 +11,21 @@ import CentralCard from "./homeComponets/CentralCard";
 const Home = () => {
   return (
     <>
-      <Container>
+      <Container fluid>
         <Row className="justify-content-center">
-          <Col xs={2}>
+          <Col xs={12} md={10} lg={4} xl={2} xxl={2}>
             <FirstLeftCard />
             <SecondLeftComponent />
             <ThirdLeftComponent />
             <FourthLeftComponent />
             <Container className="rounded-3 mt-2 bg-white p-4 border fontSize"></Container>
           </Col>
-          <Col xs={5}>
+          <Col xs={12} md={10} lg={8} xl={5} xxl={5}>
             <Container className="rounded-3 mt-2 bg-white p-4 border fontSize">
               <CentralCard />
             </Container>
           </Col>
-          <Col xs={3}>
+          <Col xs={12} md={10} lg={10} xl={3} xxl={3}>
             <FirstRightCard />
             <SecondRightCard />
             <FooterRight />

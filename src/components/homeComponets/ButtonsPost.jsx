@@ -6,7 +6,7 @@ import { ChatText, HandThumbsUp, Send } from "react-bootstrap-icons";
 const ButtonsPost = () => {
   return (
     <>
-      <Row className="d-flex justify-content-between ">
+      <Row className="d-flex justify-content-between my-2 ">
         <Col xs={2}>
           <Button variant="trasparent fs-6 p-0 btnClick">
             <Row className="d-flex justify-content-start">
