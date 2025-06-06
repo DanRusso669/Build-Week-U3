@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Button, Col, Image, Row } from "react-bootstrap";
 import { GlobeAmericasFill, ThreeDots, X } from "react-bootstrap-icons";
 import { Link } from "react-router-dom";
+import ButtonsPost from "./ButtonsPost";
 
 const CardPost = () => {
   const [posts, setPosts] = useState([]);
@@ -83,6 +84,7 @@ const CardPost = () => {
               />
             )}
           </Col>
+          <ButtonsPost />
         </Row>
       ))}
     </>

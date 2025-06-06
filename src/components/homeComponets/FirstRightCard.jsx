@@ -4,7 +4,7 @@ import { BsInfoSquareFill } from "react-icons/bs";
 const FirstRightCard = () => {
   return (
     <Container className="rounded-3 mt-2 bg-white p-4 border fontSize">
-      <Row class="d-flex justify-content-between">
+      <Row className="d-flex justify-content-between">
         <Col xs={10}>
           <h5>LinkeDIn Notizie</h5>
         </Col>
