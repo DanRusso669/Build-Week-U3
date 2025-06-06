@@ -58,7 +58,7 @@ const Lavoro = () => {
 
   return (
     <>
-      <Container className="mt-2">
+      <Container className="mt-2 mb-3">
         <Row>
           <Col xs={12} md={5} lg={4} xl={3} className="mb-3">
             <FirstLeftCard />
