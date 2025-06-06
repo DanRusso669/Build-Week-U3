@@ -68,6 +68,10 @@ p {
   font-weight: 500;
 }
 
+.btnClick {
+  border: 0;
+}
+
 .imgPost {
   max-width: 100%;
   height: auto;

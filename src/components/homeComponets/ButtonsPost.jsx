@@ -6,9 +6,9 @@ import { ChatText, HandThumbsUp, Send } from "react-bootstrap-icons";
 const ButtonsPost = () => {
   return (
     <>
-      <Row className="d-flex justify-content-between">
+      <Row className="d-flex justify-content-between ">
         <Col xs={2}>
-          <Button variant="trasparent fs-6 p-0">
+          <Button variant="trasparent fs-6 p-0 btnClick">
             <Row className="d-flex justify-content-start">
               <Col xs={6} className="m-0 p-0">
                 <HandThumbsUp />
@@ -20,7 +20,7 @@ const ButtonsPost = () => {
           </Button>
         </Col>
         <Col xs={2}>
-          <Button variant="trasparent fs-6 p-0">
+          <Button variant="trasparent fs-6 p-0 btnClick">
             <Row className="d-flex justify-content-start">
               <Col xs={6} className="m-0 p-0">
                 <ChatText />
@@ -32,7 +32,7 @@ const ButtonsPost = () => {
           </Button>
         </Col>
         <Col xs={2}>
-          <Button variant="trasparent fs-6 p-0">
+          <Button variant="trasparent fs-6 p-0 btnClick">
             <Row className="d-flex justify-content-start">
               <Col xs={6} className="m-0 p-0">
                 <FontAwesomeIcon icon={faRetweet} />
@@ -44,7 +44,7 @@ const ButtonsPost = () => {
           </Button>
         </Col>
         <Col xs={2}>
-          <Button variant="trasparent fs-6 p-0">
+          <Button variant="trasparent fs-6 p-0 btnClick">
             <Row className="d-flex justify-content-start">
               <Col xs={6} className="m-0 p-0">
                 <Send />

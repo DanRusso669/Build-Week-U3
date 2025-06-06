@@ -83,8 +83,8 @@ const CardPost = () => {
                 className="imgPost my-3 me-3"
               />
             )}
+            <ButtonsPost />
           </Col>
-          <ButtonsPost />
         </Row>
       ))}
     </>
