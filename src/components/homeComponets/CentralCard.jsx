@@ -14,7 +14,7 @@ const CentralCard = () => {
       <CreatePost onOpenModal={handleOpenModal} />
       <ModaleNewPost show={showModal} handleClose={handleCloseModal} />
       <CardPost />
-      {/* <ButtonsPost /> */}
+      <ButtonsPost />
     </>
   );
 };

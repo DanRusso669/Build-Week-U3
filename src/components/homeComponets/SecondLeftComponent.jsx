@@ -7,7 +7,7 @@ const SecondLeftComponent = () => {
       <Row className="align-items-center">
         <Col xs={9}>
           <p className="fw-semibold">Collegamenti</p>
-          <p lassName="text-muted">Espandi la tua rete</p>
+          <p className="text-muted">Espandi la tua rete</p>
         </Col>
         <Col xs={3}>
           <BsPersonPlus />
