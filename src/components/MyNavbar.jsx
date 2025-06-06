@@ -34,7 +34,7 @@ const MyNavbar = () => {
               <Nav style={{ gap: "20px" }}>
                 <Nav.Link
                   as={Link}
-                  to="/home"
+                  to="/"
                   className={`text-center d-flex flex-column align-items-center ${location.pathname === "/home" ? "active-link" : ""}`}
                 >
                   <FontAwesomeIcon icon={faHome} className="mb-1" />
