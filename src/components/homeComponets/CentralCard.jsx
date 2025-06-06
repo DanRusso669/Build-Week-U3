@@ -2,7 +2,6 @@ import CardPost from "./CardPost";
 import { useState } from "react";
 import CreatePost from "./CreatePost";
 import ModaleNewPost from "./ModaleNewPost";
-import ButtonsPost from "./ButtonsPost";
 
 const CentralCard = () => {
   const [showModal, setShowModal] = useState(false);
@@ -14,7 +13,6 @@ const CentralCard = () => {
       <CreatePost onOpenModal={handleOpenModal} />
       <ModaleNewPost show={showModal} handleClose={handleCloseModal} />
       <CardPost />
-      <ButtonsPost />
     </>
   );
 };
