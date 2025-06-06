@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { Button, Col, Form, Row } from "react-bootstrap";
+import { Pencil, Trash3Fill } from "react-bootstrap-icons";
 
 const CommentSection = () => {
   const [comments, setComments] = useState([]);
@@ -18,7 +20,7 @@ const CommentSection = () => {
       });
       if (!response.ok) throw new Error("Errore nella fetch");
       const data = await response.json();
-      setComments(data.reverse().slice(0, 20));
+      setComments(data.reverse().slice(0, 10));
     } catch (error) {
       console.log(error);
     }
@@ -115,25 +117,40 @@ const CommentSection = () => {
         {comments.map((comment) => (
           <li key={comment._id} style={{ marginBottom: "1rem" }}>
             {editingId === comment._id ? (
-              <form onSubmit={handleEditSubmit} style={{ display: "inline" }}>
-                <input
+              <Form onSubmit={handleEditSubmit} style={{ display: "inline" }}>
+                <Form.Control
                   type="text"
                   value={editingText}
                   onChange={(e) => setEditingText(e.target.value)}
                   required
                 />
-                <button type="submit">Salva</button>
-                <button type="button" onClick={cancelEdit}>
-                  Annulla
-                </button>
-              </form>
+                <Button type="submit">Salva</Button>
+                <Button type="button" onClick={cancelEdit}>
+                  Chiudi
+                </Button>
+              </Form>
             ) : (
               <>
-                {comment.comment} • ⭐ {comment.rate}{" "}
-                <button onClick={() => startEditing(comment)}>Modifica</button>{" "}
-                <button onClick={() => handleDelete(comment._id)}>
-                  Elimina
-                </button>
+                <Row className="m-3">
+                  <Col xs={8}>
+                    {comment.comment} • ⭐ {comment.rate}{" "}
+                  </Col>
+                  <Col xs={4}>
+                    <Button
+                      variant="success"
+                      onClick={() => startEditing(comment)}
+                    >
+                      <Pencil />
+                    </Button>{" "}
+                    <Button
+                      variant="danger"
+                      className="fs-6"
+                      onClick={() => handleDelete(comment._id)}
+                    >
+                      <Trash3Fill />
+                    </Button>
+                  </Col>
+                </Row>
               </>
             )}
           </li>
@@ -141,18 +158,22 @@ const CommentSection = () => {
       </ul>
 
       <form onSubmit={handleSubmit}>
-        <textarea
+        <Form.Control
           placeholder="Scrivi un commento..."
           value={newComment}
           onChange={(e) => setNewComment(e.target.value)}
           required
-          rows={3}
-          cols={40}
+          className="no-focus"
         />
         <br />
-        <button type="submit" disabled={newComment.trim() === ""}>
-          Invia commento
-        </button>
+        <Button
+          variant="info"
+          className="ms-2 mb-2"
+          type="submit"
+          disabled={newComment.trim() === ""}
+        >
+          Commenta
+        </Button>
       </form>
     </>
   );

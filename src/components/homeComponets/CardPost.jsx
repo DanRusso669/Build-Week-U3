@@ -104,7 +104,7 @@ const CardPost = () => {
               {openComments[post._id] ? "nascondi commenti" : "mostra commenti"}
             </a>
             {openComments[post._id] && <CommentSection elementId={post._id} />}
-            <ButtonsPost />
+            {!openComments[post._id] && <ButtonsPost />}
           </Col>
         </Row>
       ))}
