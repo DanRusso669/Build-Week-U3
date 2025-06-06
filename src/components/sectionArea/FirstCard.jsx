@@ -1,10 +1,9 @@
 import { Container, Card, Row, Col, Button, Dropdown, Modal, Form } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCamera, faArrowUpFromBracket, faObjectGroup } from "@fortawesome/free-solid-svg-icons";
+import { faCamera, faArrowUpFromBracket, faObjectGroup, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Cookies from "js-cookie";
 import { fetchProfile } from "../../redux/actions";
 
 const FirstCard = () => {
@@ -22,7 +21,7 @@ const FirstCard = () => {
     setImageUrl("");
   };
 
-  const handleUploadImage = () => {
+  const handleUploadImage = async () => {
     if (!imageUrl) {
       alert("Inserisci un URL prima di caricare.");
       return;
@@ -33,9 +32,29 @@ const FirstCard = () => {
       return;
     }
 
-    Cookies.set("coverImage", imageUrl, { expires: 7 }); // Salva 7 giorni
-    alert("Immagine salvata con successo!");
-    handleCloseModal();
+    try {
+      const response = await fetch(`https://striveschool-api.herokuapp.com/api/profile`, {
+        method: "PUT",
+        body: JSON.stringify({ image: imageUrl }),
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${import.meta.env.VITE_STRIVE_TOKEN}`,
+        },
+      });
+
+      if (response.ok) {
+        alert("Immagine caricata con successo!");
+        dispatch(fetchProfile(id));
+        handleCloseModal();
+      } else {
+        const errorData = await response.text();
+        console.error("Errore API:", errorData);
+        alert("Errore durante il caricamento dell'immagine. Dettagli: " + errorData);
+      }
+    } catch (error) {
+      console.error("Errore:", error);
+      alert("Errore durante il caricamento dell'immagine. Dettagli: " + error.message);
+    }
   };
 
   useEffect(() => {
@@ -47,9 +66,8 @@ const FirstCard = () => {
     <Container className="p-0 mt-4">
       <Card className="border rounded-3">
         <div className="position-relative ImmagineCardProfile">
-          {/* Immagine di copertina (presa dai cokie) */}
           <Card.Img
-            src={Cookies.get("coverImage") || "src/assets/download.png"}
+            src={profile.image || "src/assets/download.png"}
             style={{
               height: "12rem",
               objectFit: "cover",
@@ -58,7 +76,7 @@ const FirstCard = () => {
             }}
           />
 
-          {/* Icona della fotocamera */}
+          {/* Bottone per caricare una nuova immagine */}
           <Dropdown className="position-absolute" style={{ top: "15px", right: "15px" }}>
             <Dropdown.Toggle
               as="div"
@@ -94,21 +112,41 @@ const FirstCard = () => {
             </Dropdown.Menu>
           </Dropdown>
 
-          {/* Immagine del profilo (presa dall'API) */}
-          <img
-            src={profile.image}
-            alt="Foto profilo"
-            style={{
-              width: "10rem",
-              height: "10rem",
-              borderRadius: "50%",
-              border: "3px solid white",
-              position: "absolute",
-              bottom: "-2.5rem",
-              left: "20px",
-              objectFit: "cover",
-            }}
-          />
+          {/* Immagine del profilo */}
+          <div className="position-relative">
+            <img
+              src={profile.image}
+              alt="Foto profilo"
+              style={{
+                width: "10rem",
+                height: "10rem",
+                borderRadius: "50%",
+                border: "3px solid white",
+                position: "absolute",
+                bottom: "-2.5rem",
+                left: "20px",
+                objectFit: "cover",
+              }}
+            />
+            <Button
+              className="position-absolute"
+              style={{
+                bottom: "-30px",
+                right: "650px",
+                backgroundColor: "#ffffff",
+                borderRadius: "50%",
+                width: "3.5rem",
+                height: "3.5rem",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+              }}
+              onClick={handleShowModal}
+            >
+              <FontAwesomeIcon icon={faPlus} style={{ color: "#2f5eb1" }} />
+            </Button>
+          </div>
         </div>
 
         <Card.Body className="pt-5 px-4">
@@ -123,7 +161,6 @@ const FirstCard = () => {
               <p className="text-muted mb-1" style={{ fontSize: "1rem" }}>
                 {profile.area}{" "}
                 <a href="#" style={{ textDecoration: "none" }}>
-                  {" "}
                   Informazioni di contatto
                 </a>
               </p>
@@ -144,30 +181,6 @@ const FirstCard = () => {
                 </Button>
               </div>
             </Col>
-
-            <Col md={4} className="align-items-center d-block d-md-none d-lg-block">
-              <Card className="mb-2">
-                <div className="d-flex">
-                  <img
-                    src={profile.image}
-                    alt="foto"
-                    className="me-3"
-                    style={{
-                      width: "3rem",
-                      height: "3rem",
-                      objectFit: "cover",
-                      borderRadius: "0.25rem",
-                    }}
-                  />
-
-                  <div className="d-flex align-items-center">
-                    <p className="fw-semibold" style={{ fontSize: "0.9rem" }}>
-                      Senior Developer
-                    </p>
-                  </div>
-                </div>
-              </Card>
-            </Col>
           </Row>
         </Card.Body>
       </Card>
@@ -175,12 +188,12 @@ const FirstCard = () => {
       {/* Modale per caricare immagine */}
       <Modal show={showModal} onHide={handleCloseModal} size="lg">
         <Modal.Header closeButton>
-          <Modal.Title>Aggiungi un'immagine di copertina</Modal.Title>
+          <Modal.Title>Carica una nuova immagine</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form.Group controlId="formUrl" className="mb-3">
+          <Form.Group controlId="formUrlProfile" className="mb-3">
             <Form.Label>Inserisci l'URL dell'immagine</Form.Label>
-            <Form.Control type="text" placeholder="https://example.com/immagine.jpg" value={imageUrl} onChange={(e) => setImageUrl(e.target.value)} />
+            <Form.Control type="text" placeholder="src/assets/download.png" value={imageUrl} onChange={(e) => setImageUrl(e.target.value)} />
           </Form.Group>
           <Button variant="primary" onClick={handleUploadImage}>
             Salva immagine
