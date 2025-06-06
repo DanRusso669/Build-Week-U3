@@ -4,9 +4,11 @@ import { Button, Col, Image, Row } from "react-bootstrap";
 import { GlobeAmericasFill, ThreeDots, X } from "react-bootstrap-icons";
 import { Link } from "react-router-dom";
 import ButtonsPost from "./ButtonsPost";
+import CommentSection from "./CommentSection";
 
 const CardPost = () => {
   const [posts, setPosts] = useState([]);
+  const [openComments, setOpenComments] = useState({});
 
   useEffect(() => {
     fetchPosts();
@@ -28,11 +30,19 @@ const CardPost = () => {
       }
       const data = await response.json();
 
-      setPosts(data.reverse().slice(0, 20));
+      setPosts(data.reverse().slice(10, 25));
     } catch (error) {
       console.log(error);
     }
   };
+
+  const toggleComments = (postId) => {
+    setOpenComments((prev) => ({
+      ...prev,
+      [postId]: !prev[postId],
+    }));
+  };
+
   return (
     <>
       {posts.map((post) => (
@@ -83,6 +93,17 @@ const CardPost = () => {
                 className="imgPost my-3 me-3"
               />
             )}
+            <a
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                toggleComments(post._id);
+              }}
+              className="text-decoration-none text-primary"
+            >
+              {openComments[post._id] ? "nascondi commenti" : "mostra commenti"}
+            </a>
+            {openComments[post._id] && <CommentSection elementId={post._id} />}
             <ButtonsPost />
           </Col>
         </Row>
